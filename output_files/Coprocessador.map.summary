@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Sun Apr 06 10:09:40 2025
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : Coprocessador
+Top-level Entity Name : Coprocessador
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 1818
+Total pins : 5
+Total virtual pins : 0
+Total block memory bits : 8,192
+Total DSP Blocks : 88
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0
