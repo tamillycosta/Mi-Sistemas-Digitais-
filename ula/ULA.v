@@ -1,9 +1,9 @@
 module ULA (
-	 input clk,
+	input clk,
     input [199:0] matriz1, 
     input [199:0] matriz2, 
-	 input [7:0] escalar,
-	 input [7:0] tamanho,
+	input [7:0] escalar,
+	input [7:0] tamanho,
     input [2:0] opcode,
     output reg [199:0] resultado
 );
@@ -91,9 +91,11 @@ module ULA (
 				 
 				3'b100 : begin // transposicao
 					  for (i = 0; i < 5; i = i + 1) begin
-                    for (j = 0; j < 5; j = j + 1) begin
-                        resultado[8*(i + 5*j) +: 8] = matriz1[8*(j + 5*i) +: 8]; 
-                    end
+                        for (j = 0; j < 5; j = j + 1) begin
+                            //coloca o numero da posição [i][j] da matriz na posição [j][i] do resultado,
+                            //trocando linha pela coluna e vice versa
+                            resultado[8*(i + 5*j) +: 8] = matriz1[8*(j + 5*i) +: 8]; 
+                        end
                 end
             end
 					
