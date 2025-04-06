@@ -33,7 +33,7 @@ always @(posedge clock) begin
 
 
            
-            //garante que os valores temporarios sejam reinicializados sempre que a conta recomeça
+            //garante que os valores temporarios sejam reinicializados sempre que a conta recomeçar
             temp[0]=0;
             temp[1]=0;
             temp[2]=0;
