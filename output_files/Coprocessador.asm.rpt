@@ -1,5 +1,5 @@
 Assembler report for Coprocessador
-Sun Apr 06 10:16:11 2025
+Mon Apr 07 17:04:58 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -11,7 +11,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: C:/Users/GiuUser/Downloads/Coprocessador/Coprocessador/output_files/Coprocessador.sof
+  6. Assembler Device Options: D:/Quartus_Git/Mi-Sistemas-Digitais-/output_files/Coprocessador.sof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Apr 06 10:16:11 2025 ;
+; Assembler Status      ; Successful - Mon Apr 07 17:04:58 2025 ;
 ; Revision Name         ; Coprocessador                         ;
 ; Top-level Entity Name ; Coprocessador                         ;
 ; Family                ; Cyclone V                             ;
@@ -63,23 +63,23 @@ refer to the applicable agreement for further details.
 +--------+------------------------+--------------+
 
 
-+---------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                             ;
-+---------------------------------------------------------------------------------------+
-; File Name                                                                             ;
-+---------------------------------------------------------------------------------------+
-; C:/Users/GiuUser/Downloads/Coprocessador/Coprocessador/output_files/Coprocessador.sof ;
-+---------------------------------------------------------------------------------------+
++---------------------------------------------------------------------+
+; Assembler Generated Files                                           ;
++---------------------------------------------------------------------+
+; File Name                                                           ;
++---------------------------------------------------------------------+
+; D:/Quartus_Git/Mi-Sistemas-Digitais-/output_files/Coprocessador.sof ;
++---------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/GiuUser/Downloads/Coprocessador/Coprocessador/output_files/Coprocessador.sof ;
-+----------------+------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                        ;
-+----------------+------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x02A66D7E                                                                                     ;
-; Checksum       ; 0x02A66D7E                                                                                     ;
-+----------------+------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------+
+; Assembler Device Options: D:/Quartus_Git/Mi-Sistemas-Digitais-/output_files/Coprocessador.sof ;
++----------------+------------------------------------------------------------------------------+
+; Option         ; Setting                                                                      ;
++----------------+------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x02D6894A                                                                   ;
+; Checksum       ; 0x02D6894A                                                                   ;
++----------------+------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -88,14 +88,14 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Apr 06 10:15:40 2025
+    Info: Processing started: Mon Apr 07 17:04:34 2025
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Coprocessador -c Coprocessador
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 5060 megabytes
-    Info: Processing ended: Sun Apr 06 10:16:11 2025
-    Info: Elapsed time: 00:00:31
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Peak virtual memory: 5069 megabytes
+    Info: Processing ended: Mon Apr 07 17:04:58 2025
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:19
 
 

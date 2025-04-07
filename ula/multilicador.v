@@ -7,10 +7,11 @@ module multiplicador(
 );
 
     integer k, i, j, w;
-    reg signed [7:0] a, b;
+    reg r_negativo;
+    reg signed [8:0] a, b;
     reg signed [7:0] matrizA [0:4][0:4];
     reg signed [7:0] matrizB [0:4][0:4];
-    reg signed [15:0] produto_completo;
+    reg signed [16:0] produto_completo;
 	 
 	 
 
@@ -32,9 +33,21 @@ module multiplicador(
                     
                     //(re)inicia o valor do produto completo para cada posição da matriz de saida
                     produto_completo = 0;
-                    for(k = 0; k < 5; k = k + 1)begin //Itera pelos valores da linha(em A) e coluna(em B)
+                    for(k = 0; k < 5; k = k + 1)begin
+                        r_negativo = 0; //Itera pelos valores da linha(em A) e coluna(em B)
                         a = matrizA[i][k];
                         b = matrizB[k][j];
+
+                        //trasnforma os numeros negativos em positivos para garantir resultados com modulo correto
+                        //guarda em r_negativo se o resultado da multiplicação deve ser positivo(r_negativo=0) ou negativo(r_negativo=1)
+                        if(a<0)begin
+                            a=-a;
+                            r_negativo = !r_negativo;
+                        end
+                        if(b<0)begin
+                            b=-b;
+                            r_negativo = !r_negativo;
+                        end
 
                         // Multiplicação usando somas e deslocamento de bits
                         for (w = 0; w < 8; w = w + 1) begin
@@ -42,16 +55,20 @@ module multiplicador(
                                 produto_completo = produto_completo + (a << w);
                         end
 
-                    // Armazena apenas os 8 bits menos significativos
+                        //caso o resultado deva ser negativo, muda ele para negativo
+                        if(r_negativo)begin
+                            produto_completo = -produto_completo;
+                        end
+
 						  
 						   // tratamento de overflow
-						   if(produto_completo > 127)  begin 
-								 Pp[(5*i+j)*8 +: 8] = 127 ;
-						  end else if (produto_completo < - 128) begin 
-								  Pp[(5*i+j)*8 +: 8] = -128 ;
-						  end else begin 
-								 Pp[(5*i+j)*8 +: 8] = produto_completo[7:0];
-						  end 
+                        if(produto_completo > 127)  begin 
+                                Pp[(5*i+j)*8 +: 8] = 127 ;
+                        end else if (produto_completo < - 128) begin 
+                                Pp[(5*i+j)*8 +: 8] = -128 ;
+                        end else begin 
+                                Pp[(5*i+j)*8 +: 8] = produto_completo[7:0];
+                        end 
 						  
 						  
                    
