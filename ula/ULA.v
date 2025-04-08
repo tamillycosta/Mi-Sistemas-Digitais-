@@ -2,7 +2,7 @@ module ULA (
 	input clk,
     input [199:0] matriz1, 
     input [199:0] matriz2, 
-	input [7:0] escalar,
+    input [7:0] escalar,
 	input [7:0] tamanho,
     input [2:0] opcode,
     output reg [199:0] resultado
@@ -84,6 +84,7 @@ module ULA (
             3'b011: begin // Multiplicação por escalar
                 for (i = 0; i < 25; i = i + 1) begin
 							temp =  matriz1[i * 8 +: 8] * escalar;
+                            // tratamento de overflow
                      resultado[(i*8) +: 8] = (temp > 127) ? 127 : (temp < -128) ? -128 : temp;
                 end
             end
@@ -102,7 +103,9 @@ module ULA (
 					
 		3'b101: begin // oposta 
 			for(i = 0; i < 25; i = i + 1) begin
+                //'multiplica' todos valores por -1
             temp = -$signed(matriz1[(i*8) +: 8]);
+            // tratamento de overflow
             resultado[(i*8) +: 8] = (temp > 127) ? 127 : (temp < -128) ? -128 : temp;
         end
 		end 
