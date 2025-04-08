@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Coprocessador
-Mon Apr 07 16:57:06 2025
+Tue Apr 08 11:22:07 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -54,17 +54,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Apr 07 16:57:05 2025       ;
+; Analysis & Synthesis Status     ; Successful - Tue Apr 08 11:22:06 2025       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; Coprocessador                               ;
 ; Top-level Entity Name           ; Coprocessador                               ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 1818                                        ;
+; Total registers                 ; 1858                                        ;
 ; Total pins                      ; 5                                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 8,192                                       ;
-; Total DSP Blocks                ; 88                                          ;
+; Total DSP Blocks                ; 90                                          ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -169,14 +169,14 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.69        ;
+; Average used               ; 1.88        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  23.0%      ;
-;     Processor 3            ;  23.0%      ;
-;     Processor 4            ;  23.0%      ;
+;     Processor 2            ;  29.4%      ;
+;     Processor 3            ;  29.4%      ;
+;     Processor 4            ;  29.4%      ;
 +----------------------------+-------------+
 
 
@@ -226,27 +226,27 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 15223     ;
+; Estimate of Logic utilization (ALMs needed) ; 15264     ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 29389     ;
-;     -- 7 input functions                    ; 9         ;
-;     -- 6 input functions                    ; 742       ;
-;     -- 5 input functions                    ; 1386      ;
-;     -- 4 input functions                    ; 12636     ;
-;     -- <=3 input functions                  ; 14616     ;
+; Combinational ALUT usage for logic          ; 29448     ;
+;     -- 7 input functions                    ; 8         ;
+;     -- 6 input functions                    ; 766       ;
+;     -- 5 input functions                    ; 1412      ;
+;     -- 4 input functions                    ; 12639     ;
+;     -- <=3 input functions                  ; 14623     ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 1818      ;
+; Dedicated logic registers                   ; 1858      ;
 ;                                             ;           ;
 ; I/O pins                                    ; 5         ;
 ; Total MLAB memory bits                      ; 0         ;
 ; Total block memory bits                     ; 8192      ;
 ;                                             ;           ;
-; Total DSP Blocks                            ; 88        ;
+; Total DSP Blocks                            ; 90        ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 1081      ;
-; Total fan-out                               ; 127626    ;
-; Average fan-out                             ; 4.04      ;
+; Maximum fan-out                             ; 1121      ;
+; Total fan-out                               ; 128184    ;
+; Average fan-out                             ; 4.05      ;
 +---------------------------------------------+-----------+
 
 
@@ -255,13 +255,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                       ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |Coprocessador                                                                                                                          ; 29389 (2)           ; 1818 (0)                  ; 8192              ; 88         ; 5    ; 0            ; |Coprocessador                                                                                                                                                                                                                                                                                                                                            ; Coprocessador                     ; work         ;
-;    |ControlUnit:comb_3|                                                                                                                 ; 29288 (14)          ; 1731 (618)                ; 8192              ; 88         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3                                                                                                                                                                                                                                                                                                                         ; ControlUnit                       ; work         ;
-;       |Execute:comb_3|                                                                                                                  ; 29193 (610)         ; 797 (0)                   ; 0                 ; 88         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3                                                                                                                                                                                                                                                                                                          ; Execute                           ; work         ;
-;          |ULA:ula_inst|                                                                                                                 ; 28583 (1000)        ; 797 (0)                   ; 0                 ; 88         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst                                                                                                                                                                                                                                                                                             ; ULA                               ; work         ;
-;             |determinante:comb_4|                                                                                                       ; 1222 (32)           ; 597 (0)                   ; 0                 ; 63         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4                                                                                                                                                                                                                                                                         ; determinante                      ; work         ;
-;                |Determinante4x4:comb_3|                                                                                                 ; 434 (434)           ; 266 (266)                 ; 0                 ; 12         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Determinante4x4:comb_3                                                                                                                                                                                                                                                  ; Determinante4x4                   ; work         ;
-;                |matriz_deter5x5:comb_4|                                                                                                 ; 756 (756)           ; 331 (331)                 ; 0                 ; 40         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4                                                                                                                                                                                                                                                  ; matriz_deter5x5                   ; work         ;
+; |Coprocessador                                                                                                                          ; 29448 (2)           ; 1858 (0)                  ; 8192              ; 90         ; 5    ; 0            ; |Coprocessador                                                                                                                                                                                                                                                                                                                                            ; Coprocessador                     ; work         ;
+;    |ControlUnit:comb_3|                                                                                                                 ; 29347 (14)          ; 1771 (618)                ; 8192              ; 90         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3                                                                                                                                                                                                                                                                                                                         ; ControlUnit                       ; work         ;
+;       |Execute:comb_3|                                                                                                                  ; 29252 (610)         ; 837 (0)                   ; 0                 ; 90         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3                                                                                                                                                                                                                                                                                                          ; Execute                           ; work         ;
+;          |ULA:ula_inst|                                                                                                                 ; 28642 (1000)        ; 837 (0)                   ; 0                 ; 90         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst                                                                                                                                                                                                                                                                                             ; ULA                               ; work         ;
+;             |determinante:comb_4|                                                                                                       ; 1281 (37)           ; 637 (0)                   ; 0                 ; 65         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4                                                                                                                                                                                                                                                                         ; determinante                      ; work         ;
+;                |Determinante4x4:comb_3|                                                                                                 ; 433 (433)           ; 266 (266)                 ; 0                 ; 12         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Determinante4x4:comb_3                                                                                                                                                                                                                                                  ; Determinante4x4                   ; work         ;
+;                |matriz_deter5x5:comb_4|                                                                                                 ; 811 (811)           ; 371 (371)                 ; 0                 ; 42         ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4                                                                                                                                                                                                                                                  ; matriz_deter5x5                   ; work         ;
 ;             |multiplicador:comb_3|                                                                                                      ; 26361 (26361)       ; 200 (200)                 ; 0                 ; 0          ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|multiplicador:comb_3                                                                                                                                                                                                                                                                        ; multiplicador                     ; work         ;
 ;       |debounce:debounce_inst|                                                                                                          ; 39 (1)              ; 31 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|debounce:debounce_inst                                                                                                                                                                                                                                                                                                  ; debounce                          ; work         ;
 ;          |clock_div:u1|                                                                                                                 ; 38 (38)             ; 28 (28)                   ; 0                 ; 0          ; 0    ; 0            ; |Coprocessador|ControlUnit:comb_3|debounce:debounce_inst|clock_div:u1                                                                                                                                                                                                                                                                                     ; clock_div                         ; work         ;
@@ -301,14 +301,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Statistic                                ; Number Used ;
 +------------------------------------------+-------------+
 ; Independent 9x9                          ; 49          ;
-; Two Independent 18x18                    ; 5           ;
-; Independent 18x18 plus 36                ; 23          ;
+; Two Independent 18x18                    ; 6           ;
+; Independent 18x18 plus 36                ; 24          ;
 ; Sum of two 18x18                         ; 11          ;
-; Total number of DSP blocks               ; 88          ;
+; Total number of DSP blocks               ; 90          ;
 ;                                          ;             ;
-; Fixed Point Signed Multiplier            ; 65          ;
+; Fixed Point Signed Multiplier            ; 66          ;
 ; Fixed Point Unsigned Multiplier          ; 27          ;
-; Fixed Point Mixed Sign Multiplier        ; 7           ;
+; Fixed Point Mixed Sign Multiplier        ; 8           ;
 ; Fixed Point Dedicated Output Adder Chain ; 2           ;
 +------------------------------------------+-------------+
 
@@ -327,113 +327,113 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                    ;
-+------------------------------------------------------+----------------------------------------+------------------------+
-; Latch Name                                           ; Latch Enable Signal                    ; Free of Timing Hazards ;
-+------------------------------------------------------+----------------------------------------+------------------------+
-; ControlUnit:comb_3|Execute:comb_3|matriz2[33]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[32]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[31]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[30]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[29]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[28]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[27]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[26]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[25]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[24]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[23]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[22]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[21]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[20]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[19]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[18]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[17]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[16]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[15]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[14]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[13]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[12]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[11]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[10]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[9]         ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[8]         ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[7]         ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[6]         ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[5]         ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[4]         ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[3]         ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[2]         ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[1]         ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[0]         ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[34]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[35]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[36]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[37]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[38]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[39]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[40]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[41]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[42]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[43]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[44]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[45]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[46]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[47]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[48]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[49]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[50]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[51]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[52]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[53]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[54]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[55]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[56]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[57]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[58]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[59]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[60]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[61]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[62]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[63]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[64]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[65]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[66]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[67]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[68]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[69]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[70]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[71]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[72]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[73]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[74]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[75]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[76]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[77]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[78]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[79]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[80]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[81]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[82]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[83]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[84]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[85]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[86]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[87]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[88]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[89]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[90]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[91]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[92]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[93]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[94]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[95]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[96]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[97]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[98]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; ControlUnit:comb_3|Execute:comb_3|matriz2[99]        ; ControlUnit:comb_3|Execute:comb_3|Mux1 ; yes                    ;
-; Number of user-specified and inferred latches = 208  ;                                        ;                        ;
-+------------------------------------------------------+----------------------------------------+------------------------+
++----------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                        ;
++------------------------------------------------------+--------------------------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal                        ; Free of Timing Hazards ;
++------------------------------------------------------+--------------------------------------------+------------------------+
+; ControlUnit:comb_3|Execute:comb_3|matriz2[33]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[32]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[31]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[30]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[29]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[28]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[27]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[26]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[25]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[24]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[23]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[22]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[21]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[20]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[19]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[18]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[17]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[16]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[15]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[14]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[13]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[12]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[11]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[10]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[9]         ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[8]         ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[7]         ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[6]         ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[5]         ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[4]         ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[3]         ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[2]         ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[1]         ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[0]         ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[34]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[35]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[36]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[37]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[38]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[39]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[40]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[41]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[42]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[43]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[44]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[45]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[46]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[47]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[48]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[49]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[50]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[51]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[52]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[53]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[54]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[55]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[56]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[57]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[58]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[59]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[60]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[61]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[62]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[63]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[64]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[65]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[66]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[67]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[68]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[69]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[70]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[71]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[72]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[73]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[74]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[75]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[76]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[77]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[78]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[79]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[80]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[81]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[82]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[83]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[84]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[85]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[86]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[87]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[88]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[89]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[90]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[91]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[92]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[93]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[94]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[95]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[96]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[97]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[98]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; ControlUnit:comb_3|Execute:comb_3|matriz2[99]        ; ControlUnit:comb_3|Execute:comb_3|Decoder1 ; yes                    ;
+; Number of user-specified and inferred latches = 208  ;                                            ;                        ;
++------------------------------------------------------+--------------------------------------------+------------------------+
 Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -442,12 +442,12 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1818  ;
+; Total registers                              ; 1858  ;
 ; Number of registers using Synchronous Clear  ; 571   ;
 ; Number of registers using Synchronous Load   ; 289   ;
 ; Number of registers using Asynchronous Clear ; 55    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1551  ;
+; Number of registers using Clock Enable       ; 1591  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -501,28 +501,27 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Coprocessador|ControlUnit:comb_3|memory:mem_inst|altsyncram:altsyncram_component|altsyncram_6nn1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:no_name_gen:info_rom_sr|word_counter[0] ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Coprocessador|ControlUnit:comb_3|memory:mem_inst|altsyncram:altsyncram_component|altsyncram_6nn1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:no_name_gen:info_rom_sr|WORD_SR[3]      ;
 ; 18:1               ; 2 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |Coprocessador|ControlUnit:comb_3|memory:mem_inst|altsyncram:altsyncram_component|altsyncram_6nn1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:no_name_gen:info_rom_sr|WORD_SR[0]      ;
-; 7:1                ; 99 bits   ; 396 LEs       ; 99 LEs               ; 297 LEs                ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|Mux2                                                                                                                                                            ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux79                                                                                                   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux80                                                                                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux80                                                                                                   ;
 ; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux88                                                                                                   ;
-; 7:1                ; 86 bits   ; 344 LEs       ; 86 LEs               ; 258 LEs                ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|Mux127                                                                                                                                                          ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux101                                                                                                  ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux32                                                                                                   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux1                                                                                                    ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux43                                                                                                   ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux31                                                                                                   ;
+; 7:1                ; 200 bits  ; 800 LEs       ; 200 LEs              ; 600 LEs                ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|Mux2                                                                                                                                                            ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|resultado[2]                                                                                            ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; Yes        ; |Coprocessador|ControlUnit:comb_3|address[2]                                                                                                                                                                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|temp                                                                                                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|temp                                                                                                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|temp                                                                                                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|temp                                                                                                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|temp                                                                                                    ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|resultado[5]                                                                                                                   ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Determinante4x4:comb_3|resultado[0]                                                                                            ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Determinante4x4:comb_3|Mux0                                                                                                    ;
 ; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Determinante4x4:comb_3|Mux18                                                                                                   ;
 ; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Determinante4x4:comb_3|Mux47                                                                                                   ;
 ; 8:1                ; 32 bits   ; 160 LEs       ; 96 LEs               ; 64 LEs                 ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Determinante4x4:comb_3|Mux79                                                                                                   ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|resultado[3]                                                                                            ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|temp                                                                                                    ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|temp                                                                                                    ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|temp                                                                                                    ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|temp                                                                                                    ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|temp                                                                                                    ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|resultado[6]                                                                                                                   ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; Yes        ; |Coprocessador|ControlUnit:comb_3|address[0]                                                                                                                                                                     ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux52                                                                                                   ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux11                                                                                                   ;
-; 7:1                ; 15 bits   ; 60 LEs        ; 15 LEs               ; 45 LEs                 ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|Mux193                                                                                                                                                          ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |Coprocessador|ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4|Mux19                                                                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -652,43 +651,43 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 1731                        ;
+; arriav_ff             ; 1771                        ;
 ;     CLR               ; 2                           ;
-;     ENA               ; 856                         ;
+;     ENA               ; 896                         ;
 ;     ENA CLR           ; 10                          ;
 ;     ENA CLR SCLR      ; 9                           ;
 ;     ENA SCLR          ; 328                         ;
 ;     ENA SLD           ; 288                         ;
 ;     SCLR              ; 227                         ;
 ;     plain             ; 11                          ;
-; arriav_lcell_comb     ; 29289                       ;
+; arriav_lcell_comb     ; 29348                       ;
 ;     arith             ; 15624                       ;
 ;         0 data inputs ; 16                          ;
-;         1 data inputs ; 580                         ;
-;         2 data inputs ; 2532                        ;
+;         1 data inputs ; 490                         ;
+;         2 data inputs ; 2622                        ;
 ;         3 data inputs ; 239                         ;
 ;         4 data inputs ; 12025                       ;
 ;         5 data inputs ; 232                         ;
-;     extend            ; 9                           ;
-;         7 data inputs ; 9                           ;
-;     normal            ; 13311                       ;
+;     extend            ; 8                           ;
+;         7 data inputs ; 8                           ;
+;     normal            ; 13371                       ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 384                         ;
-;         3 data inputs ; 10472                       ;
-;         4 data inputs ; 592                         ;
-;         5 data inputs ; 1134                        ;
-;         6 data inputs ; 728                         ;
+;         2 data inputs ; 385                         ;
+;         3 data inputs ; 10478                       ;
+;         4 data inputs ; 595                         ;
+;         5 data inputs ; 1160                        ;
+;         6 data inputs ; 752                         ;
 ;     shared            ; 345                         ;
 ;         0 data inputs ; 3                           ;
 ;         2 data inputs ; 200                         ;
 ;         3 data inputs ; 138                         ;
 ;         4 data inputs ; 4                           ;
-; arriav_mac            ; 88                          ;
+; arriav_mac            ; 90                          ;
 ; boundary_port         ; 32                          ;
 ; stratixv_ram_block    ; 256                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 54.50                       ;
-; Average LUT depth     ; 42.08                       ;
+; Average LUT depth     ; 41.90                       ;
 +-----------------------+-----------------------------+
 
 
@@ -697,7 +696,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:38     ;
+; Top            ; 00:00:48     ;
 +----------------+--------------+
 
 
@@ -707,7 +706,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Apr 07 16:55:49 2025
+    Info: Processing started: Tue Apr 08 11:20:36 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Coprocessador -c Coprocessador
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -988,8 +987,8 @@ Info (10041): Inferred latch for "matriz2[199]" at Execute.v(19) File: D:/Quartu
 Info (12128): Elaborating entity "ULA" for hierarchy "ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst" File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 53
 Warning (10230): Verilog HDL assignment warning at ULA.v(57): truncated value with size 32 to match size of target (8) File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/ULA.v Line: 57
 Warning (10230): Verilog HDL assignment warning at ULA.v(69): truncated value with size 32 to match size of target (8) File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/ULA.v Line: 69
-Warning (10230): Verilog HDL assignment warning at ULA.v(87): truncated value with size 32 to match size of target (8) File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/ULA.v Line: 87
-Warning (10230): Verilog HDL assignment warning at ULA.v(106): truncated value with size 32 to match size of target (8) File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/ULA.v Line: 106
+Warning (10230): Verilog HDL assignment warning at ULA.v(88): truncated value with size 32 to match size of target (8) File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/ULA.v Line: 88
+Warning (10230): Verilog HDL assignment warning at ULA.v(109): truncated value with size 32 to match size of target (8) File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/ULA.v Line: 109
 Warning (10240): Verilog HDL Always Construct warning at ULA.v(51): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/ULA.v Line: 51
 Warning (10240): Verilog HDL Always Construct warning at ULA.v(51): inferring latch(es) for variable "temp", which holds its previous value in one or more paths through the always construct File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/ULA.v Line: 51
 Warning (10240): Verilog HDL Always Construct warning at ULA.v(51): inferring latch(es) for variable "j", which holds its previous value in one or more paths through the always construct File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/ULA.v Line: 51
@@ -1025,7 +1024,6 @@ Warning (10230): Verilog HDL assignment warning at Determinante4x4.v(92): trunca
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "matrizE" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "matrizA" into its bus
 Info (12128): Elaborating entity "matriz_deter5x5" for hierarchy "ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|matriz_deter5x5:comb_4" File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 38
-Warning (10036): Verilog HDL or VHDL warning at matriz_deter5x5.v(10): object "num" assigned a value but never read File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/matriz_deter5x5.v Line: 10
 Warning (10027): Verilog HDL or VHDL warning at the matriz_deter5x5.v(54): index expression is not wide enough to address all of the elements in the array File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/matriz_deter5x5.v Line: 54
 Warning (10230): Verilog HDL assignment warning at matriz_deter5x5.v(119): truncated value with size 32 to match size of target (8) File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/matriz_deter5x5.v Line: 119
 Warning (10230): Verilog HDL assignment warning at matriz_deter5x5.v(129): truncated value with size 32 to match size of target (3) File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/matriz_deter5x5.v Line: 129
@@ -1036,7 +1034,7 @@ Info (12128): Elaborating entity "clock_div" for hierarchy "ControlUnit:comb_3|d
 Warning (10230): Verilog HDL assignment warning at debouce.v(24): truncated value with size 32 to match size of target (27) File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/debouce.v Line: 24
 Info (12128): Elaborating entity "my_dff" for hierarchy "ControlUnit:comb_3|debounce:debounce_inst|my_dff:d0" File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/debouce.v Line: 8
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2025.04.07.16:56:11 Progress: Loading sldaa8e7887/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2025.04.08.11:21:01 Progress: Loading sldaa8e7887/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1170,40 +1168,24 @@ Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[53] has unsafe 
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[54] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
-Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|resultado[6] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 60
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Equal0~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 47
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[55] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
-Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|resultado[5] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 60
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Equal0~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 47
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[56] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
-Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|resultado[4] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 60
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Equal0~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 47
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[57] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[58] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
-Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|resultado[3] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 60
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Equal0~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 47
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[59] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
-Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|resultado[2] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 60
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Equal0~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 47
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[60] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
-Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|resultado[1] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 60
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Equal0~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 47
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[61] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
-Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|resultado[0] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 60
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Equal0~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 47
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[62] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[63] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
-Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|resultado[7] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 60
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|Execute:comb_3|ULA:ula_inst|determinante:comb_4|Equal0~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/ula/determinante.v Line: 47
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[64] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[65] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
@@ -1274,19 +1256,221 @@ Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[97] has unsafe 
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
 Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[98] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
     Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[99] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[100] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[101] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[102] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[103] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[104] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[105] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[106] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[107] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[108] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[109] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[110] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[111] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[112] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[113] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[114] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[115] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[116] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[117] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[118] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[119] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[120] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[121] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[122] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[123] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[124] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[125] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[126] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[127] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[128] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[129] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[130] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[131] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[132] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[133] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[134] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[135] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[136] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[137] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[138] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[139] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[140] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[141] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[142] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[143] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[144] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[145] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[146] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[147] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[148] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[149] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[150] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[151] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[152] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[153] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[154] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[155] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[156] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[157] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[158] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[159] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[160] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[161] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[162] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[163] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[164] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[165] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[166] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[167] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[168] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[169] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[170] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[171] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[172] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[173] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[174] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[175] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[176] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[177] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[178] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[179] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[180] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[181] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[182] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[183] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[184] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[185] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[186] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[187] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[188] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[189] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[190] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[191] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[192] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[193] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[194] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[195] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[196] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[197] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[198] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
+Warning (13012): Latch ControlUnit:comb_3|Execute:comb_3|matriz2[199] has unsafe behavior File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/Execute.v Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ControlUnit:comb_3|opcode[2]~synth File: D:/Quartus_Git/Mi-Sistemas-Digitais-/control/ControlUnit.v Line: 50
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 9 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 30826 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 30919 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 30472 logic cells
+    Info (21061): Implemented 30563 logic cells
     Info (21064): Implemented 256 RAM segments
-    Info (21062): Implemented 88 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 250 warnings
-    Info: Peak virtual memory: 5145 megabytes
-    Info: Processing ended: Mon Apr 07 16:57:07 2025
-    Info: Elapsed time: 00:01:18
-    Info: Total CPU time (on all processors): 00:01:48
+    Info (21062): Implemented 90 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 435 warnings
+    Info: Peak virtual memory: 5155 megabytes
+    Info: Processing ended: Tue Apr 08 11:22:07 2025
+    Info: Elapsed time: 00:01:31
+    Info: Total CPU time (on all processors): 00:02:04
 
 

@@ -99,7 +99,7 @@ always @(posedge clock) begin
             );
 
         // Soma os termos da expansão de Laplace da matriz 4x4
-        temp[estado] = det_temp1 + det_temp2 + det_temp3 + det_temp4;
+        temp[estado] = num * (det_temp1 + det_temp2 + det_temp3 + det_temp4);
 
        
 
