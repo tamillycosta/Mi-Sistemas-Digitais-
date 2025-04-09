@@ -6,7 +6,7 @@
 Projeto desenvolvido para a disciplina de MI - Sistemas Digitais (2025.1) na Universidade Estadual de Feira de Santana.
 </h4>
 
-<h1 id="sumario">Sumário</h1>
+<h2 id="sumario">Sumário</h2>
 <ul>
   <li><a href="#equipe"><b>Equipe de Desenvolvimento</b></a></li>
   <li><a href="#problema"><b>Problema</b></a></li>
@@ -20,7 +20,7 @@ Projeto desenvolvido para a disciplina de MI - Sistemas Digitais (2025.1) na Uni
   <li><a href="#referencias"><b>Referências</b></a></li>
 </ul> 
 
-<h1 id="equipe">Equipe de Desenvolvimento</h1>
+<h2 id="equipe">Equipe de Desenvolvimento</h2>
 <ul>
   <li><a href="https://github.com/Giu-11" target="_blank">Giulia Aguiar Loula</a></li>
   <li><a href="https://github.com/Mizogamii" target="_blank">Sayumi Mizogami Santana</a></li>
