@@ -198,17 +198,17 @@ A primeira etapa do desenvolvimento concentrou-se na definição dos meios de en
   A memória utilizada suporta uma largura de 256 bits por endereço, o que possibilita o armazenamento sequencial do número máximo de elementos previsto para uma matriz 5x5 com elementos de 8 bits. Isso equivale a 25 elementos × 8 bits = 200 bits, permitindo ainda uma margem para controle ou outros dados auxiliares, se necessário. Sendo assim, a :
 </p>
 
-##### Endereço 000 (Endereço Base):
+- Endereço 000 (Endereço Base):
 <p align="justify">
  Neste endereço são armazenadas as informações de controle da operação. Os primeiros bits 8 contém o opcode, responsável por indicar qual operação deve ser executada (ex.: soma, subtração ou multiplicação). Nos próximos 8 bits, são definidos os tamanhos dos operandos , que informam ao sistema a dimensão das matrizes a serem processadas. Logo após, inicia-se o armazenamento do primeiro operando.
 </p>
 
-##### Endereço 001:
+- Endereço 001:
 <p align="justify">
   Este endereço é reservado para o segundo operando, sendo utilizado apenas em operações que requerem dois operandos, como soma ou multiplicação de matriz
 </p>
 
-##### Endereço 010:
+- Endereço 010:
 <p align="justify">
   Endereço reservado para o resultado da operação
 </p>
@@ -462,7 +462,7 @@ Assim, as matrizes são percorridas de forma que sejam multiplicados os valores 
   <p align="justify"> 
     Apesar do contratempo com a determinante 5x5, o projeto se mostrou funcional e eficiente dentro das suas limitações, servindo como uma base sólida para futuras expansões e melhorias, como a adição de suporte a ponto flutuante, otimizações de latência e paralelismo, ou até mesmo a implementação de operações mais complexas com maior escalabilidade.
   </p>
-
+---
 <h2 id="referencias">📚 6. Referências Bibliográficas</h2>
 
 - **DICIONÁRIO de informática**. Co-processador. Disponível em: [https://www.dic.app.br/2011/11/co-processador.html](https://www.dic.app.br/2011/11/co-processador.html). Acesso em: 5 abr. 2025.
