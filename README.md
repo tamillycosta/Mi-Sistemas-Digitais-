@@ -305,6 +305,128 @@ Assim, as matrizes são percorridas de forma que sejam multiplicados os valores 
 ---
 
 <h2 id="testes">Descrição dos testes: </h2>
+<table align="center">
+
+  <!-- Linha 1: Adição -->
+  <tr>
+    <td align="center">
+      <img src="testesImagens/somaTest.png" alt="Teste de adição" width="300px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Adição testada via In-System Memory na FPGA</em></p>
+    </td>
+    <td align="center">
+      <img src="testesImagens/matrizSomaTest.png" alt="Resultado da adição" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Resultado obtido por calculadora de matrizes</em></p>
+    </td>
+  </tr>
+
+  <!-- Linha 2: Subtração -->
+  <tr>
+    <td align="center">
+      <img src="testesImagens/subTest.png" alt="Teste de subtração" width="300px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Subtração testada via In-System Memory na FPGA</em></p>
+    </td>
+    <td align="center">
+      <img src="testesImagens/matrizSubTest.png" alt="Resultado da subtração" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Resultado obtido por calculadora de matrizes</em></p>
+    </td>
+  </tr>
+
+  <!-- Linha 3: Multiplicação -->
+  <tr>
+    <td align="center">
+      <img src="testesImagens/multTest.png" alt="Teste de multiplicação" width="300px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Multiplicação testada via In-System Memory na FPGA</em></p>
+    </td>
+    <td align="center">
+      <img src="testesImagens/matrizMultTest.png" alt="Resultado da multiplicação" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Resultado obtido por calculadora de matrizes</em></p>
+    </td>
+  </tr>
+
+  <!-- Linha 4: Multiplicação escalar-->
+  <tr>
+    <td align="center">
+      <img src="testesImagens/multEscalarTest.png" alt="Teste de multiplicação escalar" width="300px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Multiplicação escalar testada via In-System Memory na FPGA</em></p>
+    </td>
+    <td align="center">
+      <img src="testesImagens/matrizMultEscalarTest.png" alt="Resultado da multiplicação escalar" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Resultado obtido por calculadora de matrizes</em></p>
+    </td>
+  </tr>
+
+  <!-- Linha 5: Determinante 2x2 -->
+  <tr>
+    <td align="center">
+      <img src="testesImagens/deter2x2Test.png" alt="Teste de determinante 2x2" width="300px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Determinante 2x2 testado via In-System Memory na FPGA</em></p>
+    </td>
+    <td align="center">
+      <img src="testesImagens/matriz2x2Test.png" alt="Resultado do determinante 2x2" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Resultado obtido por calculadora de matrizes</em></p>
+    </td>
+  </tr>
+
+  <!-- Linha 6: Determinante 3x3 -->
+  <tr>
+    <td align="center">
+      <img src="testesImagens/deter3x3Test.png" alt="Teste de determinante 3x3" width="300px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Determinante 3x3 testado via In-System Memory na FPGA</em></p>
+    </td>
+    <td align="center">
+      <img src="testesImagens/matriz3x3Test.png" alt="Resultado do determinante 3x3" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Resultado obtido por calculadora de matrizes</em></p>
+    </td>
+  </tr>
+
+  <!-- Linha 7: Determinante 4x4 -->
+  <tr>
+    <td align="center">
+      <img src="testesImagens/deter4x4Test.png" alt="Teste de determinante 4x4" width="300px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Determinante 4x4 testado via In-System Memory na FPGA</em></p>
+    </td>
+    <td align="center">
+      <img src="testesImagens/matriz4x4Test.png" alt="Resultado do determinante 4x4" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Resultado obtido por calculadora de matrizes</em></p>
+    </td>
+  </tr>
+
+  <!-- Linha 8: Determinante 5x5 -->
+  <tr>
+    <td align="center">
+      <img src="testesImagens/deter5x5Test.png" alt="Teste de determinante 5x5" width="300px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Determinante 5x5 testado via In-System Memory na FPGA</em></p>
+    </td>
+    <td align="center">
+      <img src="testesImagens/matriz5x5Test.png" alt="Resultado do determinante 5x5" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Resultado obtido por calculadora de matrizes</em></p>
+    </td>
+  </tr>
+
+
+  <!-- Linha 9: Transposição -->
+  <tr>
+    <td align="center">
+      <img src="testesImagens/trasTest.png" alt="Teste de transposição" width="300px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Transposição testada via In-System Memory na FPGA</em></p>
+    </td>
+    <td align="center">
+      <img src="testesImagens/marizTransTest.png" alt="Resultado da transposição" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Resultado obtido por calculadora de matrizes</em></p>
+    </td>
+  </tr>
+
+  <!-- Linha 10: Oposta -->
+  <tr>
+    <td align="center" colspan="2">
+      <img src="testesImagens/opostaTest.png" alt="Teste de matriz oposta" width="300px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Matriz oposta testada via In-System Memory na FPGA (sem comparativo na calculadora)</em></p>
+    </td>
+  </tr>
+
+</table>
+
+
 ---
 <h2 id="execucao">Como executar:</h2>
 
