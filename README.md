@@ -33,6 +33,7 @@ O projeto visa o desenvolvimento de um coprocessador aritmético implementado na
 ---
 
 <h2 id="requisitos">Requisitos</h2>
+
 - O código deve ser escrito em linguagem de descrição de hardware **Verilog**  
 - O sistema só poderá utilizar os componentes disponíveis na placa  
 - Deve ser capaz de realizar operações com matrizes quadradas de dimensão NxN, com N ≤ 5  
@@ -48,7 +49,6 @@ O projeto visa o desenvolvimento de um coprocessador aritmético implementado na
 
 ---
 
-## Recursos utilizados:
 <h2 id="recursos">Recursos utilizados: </h2>
 
 - 🧠 Quartus Prime Lite 23.1  
@@ -59,7 +59,7 @@ O projeto visa o desenvolvimento de um coprocessador aritmético implementado na
 
 ---
 
-<h2 id="fundamentacao">1.Fundamentação Teórica: </h2>
+<h2 id="fundamentacao">1. Fundamentação Teórica: </h2>
 
 ### 🧮 Coprocessador
 
@@ -172,7 +172,8 @@ O projeto visa o desenvolvimento de um coprocessador aritmético implementado na
 </p>
 
 ---
-<h2 id="desenvolvimento">Desenvolvimento: </h2>
+<h2 id="desenvolvimento">2. Desenvolvimento: </h2>
+
 <p align="justify">
   Durante a etapa de desenvolvimento, foi necessário realizar um estudo aprofundado sobre o funcionamento e a arquitetura de um coprocessador, bem como sua implementação na placa FPGA DE1-SoC. Isso incluiu o entendimento de conceitos gerais relacionados à estrutura de hardware digital, como o fluxo de dados entre os módulos, a manipulação de informações nos registradores, o acesso à memória da FPGA e o processo completo de entrada, processamento e saída dos dados. 
 </p>
