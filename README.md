@@ -14,7 +14,7 @@ Projeto desenvolvido para a disciplina de MI - Sistemas Digitais (2025.1) na Uni
   <li><a href="#recursos"><b>Recursos Utilizados</b></a></li>
   <li><a href="#fundamentacao"><b>Fundamentação Teórica</b></a></li>
   <li><a href="#desenvolvimento"><b>Desenvolvimento</b></a></li>
-  <li><a href="#testes"><b>Descrição dos Testes</b></a></li>
+  <li><a href="#testes"><b>Testes</b></a></li>
   <li><a href="#execucao"><b>Como Executar</b></a></li>
   <li><a href="#conclusao"><b>Conclusão</b></a></li>
   <li><a href="#referencias"><b>Referências</b></a></li>
@@ -304,7 +304,7 @@ Assim, as matrizes são percorridas de forma que sejam multiplicados os valores 
 </p>
 ---
 
-<h2 id="testes">Descrição dos testes: </h2>
+<h2 id="testes">Testes: </h2>
 <table align="center">
 
   <!-- Linha 1: Adição -->
