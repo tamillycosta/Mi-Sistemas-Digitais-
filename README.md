@@ -50,6 +50,7 @@ O projeto visa o desenvolvimento de um coprocessador aritmético implementado na
 
 ## Recursos utilizados:
 <h2 id="recursos">Recursos utilizados: </h2>
+
 - 🧠 Quartus Prime Lite 23.1  
 - 🔌 Kit de desenvolvimento DE1-SoC  
 - 📝 Visual Studio Code  
