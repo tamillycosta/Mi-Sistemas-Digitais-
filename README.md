@@ -238,9 +238,13 @@ As operações foram codificadas segundo a seguinte estrutura:
 | Inversão (Matriz Oposta)  | `101`          |
 | Determinante              | `110`          |
 
-### 🧾 Cada operação:
+### 🧾 Unidade Lógica Aritmética:
 <p align="justify">
-  A seleção de cada elemento da matriz é feita utilizando a notação [(i*8) +: 8], que acessa 8 bits a partir da posição i*8 dentro do vetor. Essa abordagem facilita a manipulação dos dados em Verilog, permitindo trabalhar com cada elemento individualmente em operações como soma, subtração e outras.
+  O módulo da ULA é responsável por executar as operações aritméticas e lógicas do coprocessador, servindo como o núcleo computacional para o processamento de dados. No contexto deste projeto, a ULA foi projetada especificamente para operar com matrizes de inteiros sem sinal de 8 bits, com até 25 elementos (matrizes 5x5), que são representadas como registradores em Verilog.
+</p>
+
+<p align="justify">
+As matrizes são montadas de cada elemento do registrador é montado utilizando a notação [(i*8) +: 8], que acessa 8 bits a partir da posição i*8 dentro do vetor. Essa abordagem facilita a manipulação dos dados, permitindo que cada elemento seja tratado individualmente durante operações como soma, subtração, multiplicação e outras transformações matriciais necessárias. Com isso, a ULA consegue operar de forma eficiente e organizada, mantendo a compatibilidade com a estrutura de dados interna do sistema.
 </p>
 
 #### ➕ Adição de matrizes:
@@ -302,9 +306,8 @@ Assim, as matrizes são percorridas de forma que sejam multiplicados os valores 
 <p align="justify">
   Em todas as operações, com exceção da transposição de matriz, há a possibilidade que o resultado obtido seja maior do que pode ser armazenado em 8 bits, ou seja, um overflow. Para evitar que isso resulte em respostas inesperadas para as operações, todos resultados são guardados como registradores com mais bits e depois é testado se eles excedem o limite para 8 bits com complemento a 2, ou seja, maiores que 127 ou menores que −128. Caso o resultado passe desses limites, ele é igualado ao limite que ele excedeu, para mais ou para menos.
 </p>
----
 
-<h2 id="testes">Testes: </h2>
+<h2 id="testes">3. Testes: </h2>
 <table align="center">
 
   <!-- Linha 1: Adição -->
@@ -425,16 +428,42 @@ Assim, as matrizes são percorridas de forma que sejam multiplicados os valores 
 
 </table>
 
-
-
 ---
-<h2 id="execucao">Como executar:</h2>
+<h2 id="execucao">4. Como Executar</h2>
 
----
-<h2 id="conclusao">Conclusão:</h2>
+<p align="justify">
+  Para executar o coprocessador aritmético na DE1-SoC, siga os passos abaixo. O projeto foi desenvolvido no Intel Quartus Prime, utilizando memória RAM 1-PORT e o In-System Memory Content Editor para teste das operações.
+</p>
 
----
-<h2 id="referencias">📚 Referências Bibliográficas</h2>
+<ul>
+  <li><b>1. Clone o repositório:</b><br>
+    <code>git clone https://github.com/tamillycosta/Mi-Sistemas-Digitais-.git</code>
+  </li>
+  <li><b>2. Abra o projeto no Quartus Prime:</b><br>
+    Vá em <i>File > Open Project</i> e selecione o arquivo <code>.qpf</code> do projeto.
+  </li>
+  <li><b>3. Compile o projeto:</b><br>
+    Clique em <i>Compile</i> no menu principal para gerar o arquivo <code>.sof</code>.
+  </li>
+  <li><b>4. Carregue o projeto na FPGA:</b><br>
+    Vá em <i>Tools > Programmer</i>, selecione o arquivo <code>.sof</code> compilado e envie para a DE1-SoC conectada via USB-Blaster.
+  </li>
+  <li><b>5. Acesse o In-System Memory Content Editor:</b><br>
+    Após carregar o projeto na FPGA, vá em <i>Tools > In-System Memory Content Editor</i>, importe o arquivo <code>.sld</code> gerado após a compilação, selecione a memória desejada e preencha os dados nos endereços definidos para a operação.
+  </li>
+</ul>
+
+<h2 id="conclusao">5. Conclusão:</h2>
+<p align="justify"> O desenvolvimento deste coprocessador aritmético na FPGA DE1-SoC proporcionou uma sólida experiência prática na construção de sistemas digitais personalizados, envolvendo desde o estudo teórico de arquiteturas de processadores até a implementação e teste de um conjunto completo de operações matriciais. Ao longo do projeto, foi possível integrar múltiplos conceitos de engenharia digital, como comunicação com memória interna via RAM 1-PORT, uso de máquinas de estados finitos para controle, manipulação eficiente de registradores, e otimizações no uso de recursos físicos da FPGA, como os DSP blocks, através de estratégias como deslocamento de bits em substituição às multiplicações nativas. 
+</p> 
+<p align="justify"> 
+  Todas as operações previstas foram implementadas com sucesso, incluindo adição, subtração, multiplicação de matrizes, multiplicação por escalar, transposição, matriz oposta e cálculo do determinante. No entanto, durante os testes finais, foi identificado um erro na operação de cálculo da determinante para matrizes 5x5, impedindo que essa funcionalidade fosse concluída corretamente. As demais operações funcionaram conforme o esperado, com o sistema lidando adequadamente com situações de overflow e mantendo o processamento restrito a dados de 8 bits, conforme os requisitos definidos. 
+</p> 
+  <p align="justify"> 
+    Apesar do contratempo com a determinante 5x5, o projeto se mostrou funcional e eficiente dentro das suas limitações, servindo como uma base sólida para futuras expansões e melhorias, como a adição de suporte a ponto flutuante, otimizações de latência e paralelismo, ou até mesmo a implementação de operações mais complexas com maior escalabilidade.
+  </p>
+
+<h2 id="referencias">📚 6. Referências Bibliográficas</h2>
 
 - **DICIONÁRIO de informática**. Co-processador. Disponível em: [https://www.dic.app.br/2011/11/co-processador.html](https://www.dic.app.br/2011/11/co-processador.html). Acesso em: 5 abr. 2025.
 
