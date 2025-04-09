@@ -391,7 +391,7 @@ Assim, as matrizes são percorridas de forma que sejam multiplicados os valores 
     </td>
   </tr>
 
-  <!-- Linha 8: Determinante 5x5 -->
+  <!-- Linha 8: Determinante 5x5 
   <tr>
     <td align="center">
       <img src="testesImagens/deter5x5Test.png" alt="Teste de determinante 5x5" width="360px" style="border: 1px solid #ccc; border-radius: 8px;">
@@ -402,7 +402,7 @@ Assim, as matrizes são percorridas de forma que sejam multiplicados os valores 
       <p><em>Resultado obtido por calculadora de matrizes</em></p>
     </td>
   </tr>
-
+-->
   <!-- Linha 9: Transposição -->
   <tr>
     <td align="center">
