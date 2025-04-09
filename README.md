@@ -27,13 +27,12 @@ Projeto desenvolvido para a disciplina de MI - Sistemas Digitais (2025.1) na Uni
   <li><a href="https://github.com/tamillycosta" target="_blank">Tamilly Costa Cerqueira</a></li>
 </ul>
 
-
-## Problema:
+<h2 id="problema">Problema: </h2>
 O projeto visa o desenvolvimento de um coprocessador aritmético implementado na FPGA DE1-Soc utilizando a linguagem de descrição de hardware, Verilog.  
 
 ---
 
-## Requisitos: 
+<h2 id="requisitos">Requisitos</h2>
 - O código deve ser escrito em linguagem de descrição de hardware **Verilog**  
 - O sistema só poderá utilizar os componentes disponíveis na placa  
 - Deve ser capaz de realizar operações com matrizes quadradas de dimensão NxN, com N ≤ 5  
@@ -50,6 +49,7 @@ O projeto visa o desenvolvimento de um coprocessador aritmético implementado na
 ---
 
 ## Recursos utilizados:
+<h2 id="recursos">Recursos utilizados: </h2>
 - 🧠 Quartus Prime Lite 23.1  
 - 🔌 Kit de desenvolvimento DE1-SoC  
 - 📝 Visual Studio Code  
@@ -58,7 +58,7 @@ O projeto visa o desenvolvimento de um coprocessador aritmético implementado na
 
 ---
 
-## 1. Fundamentação Teórica
+<h2 id="fundamentacao">1.Fundamentação Teórica: </h2>
 
 ### 🧮 Coprocessador
 
@@ -171,8 +171,7 @@ O projeto visa o desenvolvimento de um coprocessador aritmético implementado na
 </p>
 
 ---
-
-## 2. Desenvolvimento: 
+<h2 id="desenvolvimento">Desenvolvimento: </h2>
 <p align="justify">
   Durante a etapa de desenvolvimento, foi necessário realizar um estudo aprofundado sobre o funcionamento e a arquitetura de um coprocessador, bem como sua implementação na placa FPGA DE1-SoC. Isso incluiu o entendimento de conceitos gerais relacionados à estrutura de hardware digital, como o fluxo de dados entre os módulos, a manipulação de informações nos registradores, o acesso à memória da FPGA e o processo completo de entrada, processamento e saída dos dados. 
 </p>
@@ -303,17 +302,15 @@ Assim, as matrizes são percorridas de forma que sejam multiplicados os valores 
 </p>
 ---
 
-## Testes: 
+<h2 id="testes">Descrição dos testes: </h2>
+---
+<h2 id="execucao">Como executar:</h2>
 
 ---
-## Como executar:
+<h2 id="conclusao">Conclusão:</h2>
 
 ---
-
-## Conclusão:
-
----
-## 📚 Referências Bibliográficas
+<h2 id="referencias">📚 Referências Bibliográficas</h2>
 
 - **DICIONÁRIO de informática**. Co-processador. Disponível em: [https://www.dic.app.br/2011/11/co-processador.html](https://www.dic.app.br/2011/11/co-processador.html). Acesso em: 5 abr. 2025.
 
