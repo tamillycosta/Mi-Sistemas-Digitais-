@@ -346,11 +346,11 @@ Assim, as matrizes são percorridas de forma que sejam multiplicados os valores 
   <!-- Linha 4: Multiplicação escalar -->
   <tr>
     <td align="center">
-      <img src="testesImagens/multEscalarTest.png" alt="Teste de multiplicação escalar" width="360px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <img src="testesImagens/matrizMultEscalarTest.png" alt="Teste de multiplicação escalar" width="360px" style="border: 1px solid #ccc; border-radius: 8px;">
       <p><em>Multiplicação escalar testada via In-System Memory na FPGA</em></p>
     </td>
     <td align="center">
-      <img src="testesImagens/matrizMultEscalarTest.png" alt="Resultado da multiplicação escalar" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <img src="testesImagens/multEscalarTest.png" alt="Resultado da multiplicação escalar" width="200px" style="border: 1px solid #ccc; border-radius: 8px;">
       <p><em>Resultado obtido por calculadora de matrizes</em></p>
     </td>
   </tr>
