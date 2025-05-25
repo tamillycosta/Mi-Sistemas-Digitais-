@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
+#include "multiplicacao.h"
 
 //Guarda os dados de uma imagem .bmp
 typedef struct{
