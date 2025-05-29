@@ -3,16 +3,16 @@
 
 #include "multiplicacao.h"
 
-int mult_tmp(int8_t arr1[5][5], int8_t arr2[5][5]){
+int mult_tmp(int8_t arr1[5][5], int8_t arr2[5][5], int8_t retorno[5][5]){
     for(int i=0; i<5; i++){
         for(int j=0; j<5; j++){
             int16_t temp = (arr1[i][j]) * (arr2[i][j]);
             if(temp>127){
-                arr1[i][j] = (int8_t)127;
+                retorno[i][j] = (int8_t)127;
             }else if(temp<-128){
-                arr1[i][j] = (int8_t)-128;
+                retorno[i][j] = (int8_t)-128;
             }else{
-                arr1[i][j] = (int8_t)temp;
+                retorno[i][j] = (int8_t)temp;
             }
         } 
     }
