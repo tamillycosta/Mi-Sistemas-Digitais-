@@ -36,8 +36,8 @@ int main(){
 }
 
 void sobel3x3(imagem* img){
-    //    unsigned char* buf = malloc(imageSize * sizeof(unsigned char));
 
+    //espaço para colocar os pixels da imagem com o filtro
     unsigned char* comFiltro = malloc(img->tamanhoImagem * sizeof(unsigned char));
 
     // Máscaras Sobel 3x3 adaptadas para matriz 5x5 com zeros nos cantos
@@ -57,10 +57,12 @@ void sobel3x3(imagem* img){
         { 0,  0,  0,  0,  0}
     };
 
+    //percorre a todos os pixels da imagem
     for(int i = 0; i < img->altura; i++){
         int linha = img->altura - i - 1;
 
         for(int j = 0; j < img->largura; j++){
+            //posição do pixel atual no vetor
             int posicao = linha * img->tamanhoLinha + j * (img->profundidade / 8);
 
             // Matriz temporária e resultados das multiplicações
@@ -74,18 +76,22 @@ void sobel3x3(imagem* img){
                     int linhaVizinha = i + i2;
                     int colunaVizinha = j + j2;
 
+                    //confirma se as posições estão dentro dos limites da imegem
                     if(linhaVizinha >= 0 && linhaVizinha < img->altura &&
                        colunaVizinha >= 0 && colunaVizinha < img->largura){
                         
+                        //posição do pixel vizinho atual no vetor
                         int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
-                        temp[i2 + 1][j2 + 1] = (img->pixels[posVizinho]+1)/2; // valor em tons de cinza
+                        temp[i2 + 1][j2 + 1] = (img->pixels[posVizinho]+1)/2; 
+                        // valor em tons de cinza, não precisa considerar cada cor
+                        // valores divididos por 2 para garantir que o resultado não exceda 8bits
                     }
                 }
             }
 
             // Multiplica pelas máscaras
-            mult_tmp(temp, sobelx, mulx);
-            mult_tmp(temp, sobely, muly);
+            mult_tmp(temp, sobelx, mulx); //TODO: trocar pela função do coprocessador
+            mult_tmp(temp, sobely, muly); //TODO: trocar pela função do coprocessador
 
             // Soma todos os valores das matrizes resultantes
             int somax = 0;
@@ -93,19 +99,15 @@ void sobel3x3(imagem* img){
 
             for(int k = 0; k < 5; k++){
                 for(int l = 0; l < 5; l++){
+                    //valores multiplicados antes da soma para compensar pela divisão feita antes
                     somax += mulx[k][l]*2;
                     somay += muly[k][l]*2;
                 }
             }
 
-            /*// Calcula o novo valor com a fórmula da magnitude
-            int novoValor = round(sqrt(somax * somax + somay * somay));
-
-            // Garante que fique no intervalo [0, 255]
-            if(novoValor < 0) novoValor = 0;
-            if(novoValor > 255) novoValor = 255;*/
-
+            //eleva o resultado de ambas mascaras ao quadrado e  soma
             int novoValor = round(sqrt(pow(somax, 2)+pow(somay, 2)));
+            //teste se o valor excedeu o limite de 8bits por cor na imagem
             if(novoValor > 255) novoValor = 255;
 
             // Escreve em RGB
@@ -116,6 +118,7 @@ void sobel3x3(imagem* img){
         }
     }
 
+    //libera os pixels antigos e substitui pela versão com filtro
     free(img->pixels);
     img->pixels=comFiltro;
 }
