@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
+#include <math.h>
 #include "multiplicacao.h"
 
 //Guarda os dados de uma imagem .bmp
@@ -11,6 +12,7 @@ typedef struct{
     int profundidade; //tamanho em bits de cada pixel
     int pixelOffset; //offset dentro da imagem até os pixels
     int tamanhoImagem; //tamanho da imagem(nescessario para ler/escrver ela)
+    int tamanhoLinha; //tamanho de 1 linha da imagem
     unsigned char* cabecalho; //ponteiro para array com o cabeçalho da imagem
     unsigned char* pixels; //ponteiro para array com os dados dos pixels
 }imagem;
@@ -19,15 +21,105 @@ typedef struct{
 //Lê e coloca a imagm em escala de cinza, salvando no ponteiro de imagem
 void leitorBmp(char* nomeArquivoLeitura, imagem* img);
 //Escreve a imagem no arquivo
-void salvarBmp(const char* nomeArquivoSaida, imagem* img);//Escreve a imagem no arquivo
+void salvarBmp(const char* nomeArquivoSaida, imagem* img);
+//aplica o filtro de sobel na imagem
+void sobel3x3(imagem* imagem);
 
 
 int main(){
     imagem img;
     leitorBmp("imagens/input/3.bmp", &img);
-    printf("altura: %d\nlargura: %d\nprofundidade: %d\n", img.altura, img.largura, img.profundidade);
+    //printf("altura: %d\nlargura: %d\nprofundidade: %d\n", img.altura, img.largura, img.profundidade);
+    sobel3x3(&img);
     salvarBmp("imagens/output/3Out.bmp", &img);
+    printf("fim");
 }
+
+void sobel3x3(imagem* img){
+    //    unsigned char* buf = malloc(imageSize * sizeof(unsigned char));
+
+    unsigned char* comFiltro = malloc(img->tamanhoImagem * sizeof(unsigned char));
+
+    // Máscaras Sobel 3x3 adaptadas para matriz 5x5 com zeros nos cantos
+    int8_t sobely[5][5] = {
+        {-1, -2, -1,  0,  0},
+        { 0,  0,  0,  0,  0},
+        { 1,  2,  1,  0,  0},
+        { 0,  0,  0,  0,  0},
+        { 0,  0,  0,  0,  0}
+    };
+    
+    int8_t sobelx[5][5] = {
+        {-1,  0,  1,  0,  0},
+        {-2,  0,  2,  0,  0},
+        {-1,  0,  1,  0,  0},
+        { 0,  0,  0,  0,  0},
+        { 0,  0,  0,  0,  0}
+    };
+
+    for(int i = 0; i < img->altura; i++){
+        int linha = img->altura - i - 1;
+
+        for(int j = 0; j < img->largura; j++){
+            int posicao = linha * img->tamanhoLinha + j * (img->profundidade / 8);
+
+            // Matriz temporária e resultados das multiplicações
+            int8_t temp[5][5] = {0};
+            int8_t mulx[5][5] = {0};
+            int8_t muly[5][5] = {0};
+
+            // Preenche a matriz 5x5 com vizinhança 3x3 centrada no pixel (com borda de zeros)
+            for(int i2 = -1; i2 <= 1; i2++){
+                for(int j2 = -1; j2 <= 1; j2++){
+                    int linhaVizinha = i + i2;
+                    int colunaVizinha = j + j2;
+
+                    if(linhaVizinha >= 0 && linhaVizinha < img->altura &&
+                       colunaVizinha >= 0 && colunaVizinha < img->largura){
+                        
+                        int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
+                        temp[i2 + 1][j2 + 1] = (img->pixels[posVizinho]+1)/2; // valor em tons de cinza
+                    }
+                }
+            }
+
+            // Multiplica pelas máscaras
+            mult_tmp(temp, sobelx, mulx);
+            mult_tmp(temp, sobely, muly);
+
+            // Soma todos os valores das matrizes resultantes
+            int somax = 0;
+            int somay = 0;
+
+            for(int k = 0; k < 5; k++){
+                for(int l = 0; l < 5; l++){
+                    somax += mulx[k][l]*2;
+                    somay += muly[k][l]*2;
+                }
+            }
+
+            /*// Calcula o novo valor com a fórmula da magnitude
+            int novoValor = round(sqrt(somax * somax + somay * somay));
+
+            // Garante que fique no intervalo [0, 255]
+            if(novoValor < 0) novoValor = 0;
+            if(novoValor > 255) novoValor = 255;*/
+
+            int novoValor = round(sqrt(pow(somax, 2)+pow(somay, 2)));
+            if(novoValor > 255) novoValor = 255;
+
+            // Escreve em RGB
+            uint8_t resultadoFinal = (uint8_t) novoValor;
+            comFiltro[posicao + 0] = resultadoFinal;
+            comFiltro[posicao + 1] = resultadoFinal;
+            comFiltro[posicao + 2] = resultadoFinal;
+        }
+    }
+
+    free(img->pixels);
+    img->pixels=comFiltro;
+}
+
 
 
 void leitorBmp(char* nomeArquivoLeitura, imagem* img) {
@@ -99,6 +191,7 @@ void leitorBmp(char* nomeArquivoLeitura, imagem* img) {
     img->profundidade = bitDepth;
     img->pixelOffset = pixelDataOffset;
     img->tamanhoImagem = imageSize;
+    img->tamanhoLinha = rowSize;
 
     img->cabecalho = header;
 
