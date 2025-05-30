@@ -28,13 +28,15 @@ void sobel3x3(imagem* imagem);
 void sobel5x5(imagem* img);
 //aplica o filtro de perwitt na imagem
 void perwitt(imagem* img);
+//aplica o filtro de roberts na imagem
+void roberts(imagem* img);
 
 
 int main(){
     imagem img;
     leitorBmp("imagens/input/1.bmp", &img);
     //printf("altura: %d\nlargura: %d\nprofundidade: %d\n", img.altura, img.largura, img.profundidade);
-    perwitt(&img);
+    roberts(&img);
     salvarBmp("imagens/output/1Out.bmp", &img);
     printf("fim");
 }
@@ -274,6 +276,95 @@ void perwitt(imagem* img){
             // Multiplica pelas máscaras
             mult_tmp(temp, perwittx, mulx); //TODO: trocar pela função do coprocessador
             mult_tmp(temp, perwitty, muly); //TODO: trocar pela função do coprocessador
+
+            // Soma todos os valores das matrizes resultantes
+            int somax = 0;
+            int somay = 0;
+
+            for(int k = 0; k < 5; k++){
+                for(int l = 0; l < 5; l++){
+                    //valores multiplicados antes da soma para compensar pela divisão feita antes
+                    somax += mulx[k][l]*2;
+                    somay += muly[k][l]*2;
+                }
+            }
+
+            //eleva o resultado de ambas mascaras ao quadrado e  soma
+            int novoValor = round(sqrt(pow(somax, 2)+pow(somay, 2)));
+            //teste se o valor excedeu o limite de 8bits por cor na imagem
+            if(novoValor > 255) novoValor = 255;
+
+            // Escreve em RGB
+            uint8_t resultadoFinal = (uint8_t) novoValor;
+            comFiltro[posicao + 0] = resultadoFinal;
+            comFiltro[posicao + 1] = resultadoFinal;
+            comFiltro[posicao + 2] = resultadoFinal;
+        }
+    }
+
+    //libera os pixels antigos e substitui pela versão com filtro
+    free(img->pixels);
+    img->pixels=comFiltro;
+}
+
+
+void roberts(imagem* img){
+
+    //espaço para colocar os pixels da imagem com o filtro
+    unsigned char* comFiltro = malloc(img->tamanhoImagem * sizeof(unsigned char));
+
+    // Máscaras Sobel 3x3 adaptadas para matriz 5x5 com zeros nos cantos
+    int8_t sobely[5][5] = {
+        { 1,  0,  0,  0,  0},
+        { 0, -1,  0,  0,  0},
+        { 0,  0,  0,  0,  0},
+        { 0,  0,  0,  0,  0},
+        { 0,  0,  0,  0,  0}
+    };
+    
+    int8_t sobelx[5][5] = {
+        { 0,  1,  0,  0,  0},
+        {-1,  0,  0,  0,  0},
+        { 0,  0,  0,  0,  0},
+        { 0,  0,  0,  0,  0},
+        { 0,  0,  0,  0,  0}
+    };
+
+    //percorre a todos os pixels da imagem
+    for(int i = 0; i < img->altura; i++){
+        int linha = img->altura - i - 1;
+
+        for(int j = 0; j < img->largura; j++){
+            //posição do pixel atual no vetor
+            int posicao = linha * img->tamanhoLinha + j * (img->profundidade / 8);
+
+            // Matriz temporária e resultados das multiplicações
+            int8_t temp[5][5] = {0};
+            int8_t mulx[5][5] = {0};
+            int8_t muly[5][5] = {0};
+
+            // Preenche a matriz 5x5 com vizinhança 3x3 centrada no pixel (com borda de zeros)
+            for(int i2 = 0; i2 <= 1; i2++){
+                for(int j2 = 0; j2 <= 1; j2++){
+                    int linhaVizinha = i + i2;
+                    int colunaVizinha = j + j2;
+
+                    //confirma se as posições estão dentro dos limites da imegem
+                    if(linhaVizinha >= 0 && linhaVizinha < img->altura &&
+                       colunaVizinha >= 0 && colunaVizinha < img->largura){
+                        
+                        //posição do pixel vizinho atual no vetor
+                        int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
+                        temp[i2][j2] = (img->pixels[posVizinho]+1)/2; 
+                        // valor em tons de cinza, não precisa considerar cada cor
+                        // valores divididos por 2 para garantir que o resultado não exceda 8bits
+                    }
+                }
+            }
+
+            // Multiplica pelas máscaras
+            mult_tmp(temp, sobelx, mulx); //TODO: trocar pela função do coprocessador
+            mult_tmp(temp, sobely, muly); //TODO: trocar pela função do coprocessador
 
             // Soma todos os valores das matrizes resultantes
             int somax = 0;
