@@ -531,7 +531,7 @@ void laplace(imagem* img){
                         
                         //posição do pixel vizinho atual no vetor
                         int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
-                        temp[i2 + 2][j2 + 2] = (img->pixels[posVizinho]+1)/4; 
+                        temp[i2 + 2][j2 + 2] = (img->pixels[posVizinho])/32; 
                         // valor em tons de cinza, não precisa considerar cada cor
                         // valores divididos por 2 para garantir que o resultado não exceda 8bits
                     }
@@ -547,12 +547,12 @@ void laplace(imagem* img){
             for(int k = 0; k < 5; k++){
                 for(int l = 0; l < 5; l++){
                     //valores multiplicados antes da soma para compensar pela divisão feita antes
-                    soma += mul[k][l]*4;
+                    soma += mul[k][l]*32;
                 }
             }
 
             //eleva o resultado de ambas mascaras ao quadrado e  soma
-            int novoValor = abs(soma/16);
+            int novoValor = abs(soma/4);
             //teste se o valor excedeu o limite de 8bits por cor na imagem
             if(novoValor > 255) novoValor = 255;
 
