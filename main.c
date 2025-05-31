@@ -184,7 +184,7 @@ void sobel3x3(imagem* img){
                         
                         //posição do pixel vizinho atual no vetor
                         int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
-                        temp[i2 + 1][j2 + 1] = (img->pixels[posVizinho]+1)/2; 
+                        temp[i2 + 1][j2 + 1] = (img->pixels[posVizinho])/2; 
                         // valor em tons de cinza, não precisa considerar cada cor
                         // valores divididos por 2 para garantir que o resultado não exceda 8bits
                     }
@@ -273,7 +273,7 @@ void sobel5x5(imagem* img){
                         
                         //posição do pixel vizinho atual no vetor
                         int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
-                        temp[i2 + 2][j2 + 2] = (img->pixels[posVizinho]+1)/2; 
+                        temp[i2 + 2][j2 + 2] = (img->pixels[posVizinho])/2; 
                         // valor em tons de cinza, não precisa considerar cada cor
                         // valores divididos por 2 para garantir que o resultado não exceda 8bits
                     }
@@ -362,7 +362,7 @@ void perwitt(imagem* img){
                         
                         //posição do pixel vizinho atual no vetor
                         int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
-                        temp[i2 + 1][j2 + 1] = (img->pixels[posVizinho]+1)/2; 
+                        temp[i2 + 1][j2 + 1] = (img->pixels[posVizinho])/2; 
                         // valor em tons de cinza, não precisa considerar cada cor
                         // valores divididos por 2 para garantir que o resultado não exceda 8bits
                     }
@@ -451,7 +451,7 @@ void roberts(imagem* img){
                         
                         //posição do pixel vizinho atual no vetor
                         int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
-                        temp[i2][j2] = (img->pixels[posVizinho]+1)/2; 
+                        temp[i2][j2] = (img->pixels[posVizinho])/2; 
                         // valor em tons de cinza, não precisa considerar cada cor
                         // valores divididos por 2 para garantir que o resultado não exceda 8bits
                     }
