@@ -193,8 +193,8 @@ Assembly é especialmente útil para a otimização de código e a manipulação
   </p>
   <p>A instrução gerada possui o seguinte formato:</p>
   <ul>
-    <li>[10:3] – Valor escalar (8 bits);</li>
-    <li>[2:0] – Opcode da operação (0b101, que representa multiplicação escalar).</li>
+    <li><code>[10:3]</code> – Valor escalar (8 bits);</li>
+    <li><code>[2:0]</code> – Opcode da operação (<code>0b101</code>, que representa multiplicação escalar).</li>
   </ul>
   <p>Após montar a instrução, a função a escreve no registrador de instrução monitorado pelo coprocessador e aguarda a conclusão da operação por meio do sinal de status.</p>
   <li>Register_overflow :</li>
@@ -202,31 +202,71 @@ Assembly é especialmente útil para a otimização de código e a manipulação
      A rotina tem como objetivo registrar ocorrências de estouro (overflow) durante operações matriciais no hardware, armazenando a posição (linha e coluna) e o valor que causou o overflow em vetores de acompanhamento. Para garantir a integridade dos buffers, ela só adiciona novas entradas se o contador de overflows (overflow_count) for menor que 25, evitando assim escrita fora dos limites. 
   </p>
   <p>
-    O overflow do sistema é sinalizado todas às vezes que uma operação aritmética resulta em um valor fora do range de -128 a 127, quando isto ocorre o coprocessador sinaliza no endereço do ponteiro para flags que o valor operado será truncado e não terá o valor exato da operação.
+    O overflow do sistema é sinalizado todas às vezes que uma operação aritmética resulta em um valor fora do range de <code>-128 a 127</code>, quando isto ocorre o coprocessador sinaliza no endereço do ponteiro para flags que o valor operado será truncado e não terá o valor exato da operação.
   </p>
   <li>Result:</li>
+<div style="text-align: justify; font-family: Arial, sans-serif; max-width: 800px; margin: auto;">
+
   <p>
-    A função tem como objetivo recuperar, a partir do coprocessador, o valor resultante armazenado na posição [i][j] de uma matriz processada. Para isso, a função monta uma instrução codificada com os índices da linha (i) e da coluna (j), além de um opcode específico (0b001), que sinaliza ao hardware que se trata de uma operação de leitura. A instrução é escrita diretamente no registrador responsável por transmitir comandos ao coprocessador.
+    A função tem como objetivo recuperar, a partir do coprocessador, o valor resultante armazenado na posição <strong>[i][j]</strong> de uma matriz processada. 
+    Para isso, a função monta uma instrução codificada com os índices da linha (i) e da coluna (j), além de um <em>opcode</em> específico (<code>0b001</code>), 
+    que sinaliza ao hardware que se trata de uma operação de leitura. A instrução é escrita diretamente no registrador responsável por transmitir comandos ao coprocessador.
   </p>
-  </ul>
-  <p align="center">
 
-**Formato da Instrução (9 bits)**
+  <h3 style="text-align: center; margin-top: 40px;">Formato da Instrução (9 bits)</h3>
 
-| Bits  | Campo              | Descrição                                 | Tamanho (bits) |
-|-------|--------------------|------------------------------------------|----------------|
-| 8 : 6 | Índice da linha (i) | Índice da linha na matriz                 | 3              |
-| 5 : 3 | Índice da coluna (j)| Índice da coluna na matriz                | 3              |
-| 2 : 0 | Opcode             | Código da operação (0b001 = leitura do resultado) | 3              |
+  <div style="display: flex; justify-content: center;">
+    <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; text-align: center;">
+      <thead style="background-color: #f2f2f2;">
+        <tr>
+          <th>Bits</th>
+          <th>Campo</th>
+          <th>Descrição</th>
+          <th>Tamanho (bits)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>8 : 6</td>
+          <td>Índice da linha (i)</td>
+          <td>Índice da linha na matriz</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>5 : 3</td>
+          <td>Índice da coluna (j)</td>
+          <td>Índice da coluna na matriz</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>2 : 0</td>
+          <td>Opcode</td>
+          <td>Código da operação (<code>0b001</code> = leitura do resultado)</td>
+          <td>3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-**Opcode 0b001** indica operação de leitura do resultado.
+  <p style="text-align: center; margin-top: 10px;"><strong>Opcode <code>0b001</code></strong> indica operação de leitura do resultado.</p>
 
-</p>
+  <p>
+    Após o envio da instrução, a função entra em uma etapa de espera ativa, onde monitora o registrador de status até que o coprocessador sinalize a conclusão da operação, 
+    indicando que o dado está disponível no registrador de saída. Em seguida, o valor correspondente à posição solicitada é lido diretamente e armazenado.
+  </p>
 
+  <p>
+    Antes de retornar esse valor, a função verifica se houve um <em>overflow</em> na operação que gerou o dado. 
+    Isso é feito por meio da leitura do valor atual de <code>*flags</code>. 
+    Se <code>*flags >= 4</code>, um estouro é identificado, e a função registra a ocorrência chamando <code>register_overflow</code>, 
+    armazenando a posição e o valor para análise posterior.
+  </p>
 
-<p>Após o envio da instrução, a função entra em uma etapa de espera ativa, onde monitora o registrador de status  até que o coprocessador sinalize a conclusão da operação, indicando que o dado está disponível no registrador de saída. Em seguida, o valor correspondente à posição solicitada é lido diretamente de e armazenado.</p>
-<p>Antes de retornar esse valor, a função verifica se houve um overflow na operação que gerou o dado. Isso é feito por meio da leitura do valor atual de *flags. Se *flags >= 4, um estouro é identificado, e a função registra a ocorrência chamando register overflow, armazenando a posição e o valor para análise posterior.</p>
-<p>Por fim, o valor recuperado é retornado, tornando essa função essencial tanto para a obtenção de resultados como para o controle de falhas numéricas no processamento feito pelo coprocessador.</p>
+  <p>
+    Por fim, o valor recuperado é retornado, tornando essa função essencial tanto para a obtenção de resultados como para o controle de falhas numéricas no processamento feito pelo coprocessador.
+  </p>
+</div>
+
 
 
 </div>
