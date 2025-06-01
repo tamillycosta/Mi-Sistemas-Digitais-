@@ -23,16 +23,15 @@ void start() {
     int8_t  result[5][5];
 
     while (1) {
-        usleep(250000);
-        printf("##############################################################################################\n");
+        printf("----------------------------------------------------------\n");
         usleep(1000000);
-        printf("Seja bem vindo(a) à biblioteca de Operaões Matriciais.\n");
-        printf("\n");
+        printf(" Seja bem vindo(a) à biblioteca de Operaões Matriciais \n");
+        printf("----------------------------------------------------------\n");
         usleep(250000);
-        printf("(1) - Realizar operação");
-        printf("\n(2) - Sair");
-        printf("\n");
-        printf("\nOque deseja?: ");
+        printf("1 - Realizar operação");
+        printf("\n2 - Sair");
+        printf("\n..........................................................");
+        printf("\nO que deseja?: ");
         scanf("%d", &option);  // Corrigido: adicionado &
         limpeza();
 
@@ -130,9 +129,9 @@ void Operation(int8_t* matrixA, int8_t* matrixB, int8_t * matrizResult) {
 
     // Menu de operações
     printf("\n\nOperações:\n");
-    printf("(1) Soma\n(2) Subtração\n");
-    printf("(3) Multiplicação de matrizes\n");
-    printf("(4) Multiplicação por inteiro\n");
+    printf("1 - Soma\n2 - Subtração\n");
+    printf("3 - Multiplicação de matrizes\n");
+    printf("4 - Multiplicação por inteiro\n");
     printf("\nDigite uma opção: ");
     scanf("%d", &optionOperacao);
     limpeza();
@@ -315,7 +314,7 @@ void clear_overflow_log(void) {
 // Função para mostrar relatório de overflow
 void print_overflow_report(void) {
     if (overflow_count > 0) {
-        printf("\n⚠️  RELATÓRIO DE OVERFLOW ⚠️\n");
+        printf("\n  RELATÓRIO DE OVERFLOW \n");
         printf("==============================\n");
         printf("Foram detectados %d overflow(s) nas seguintes posições:\n\n", overflow_count);
         
@@ -330,6 +329,6 @@ void print_overflow_report(void) {
         printf("   Considere usar valores menores ou verificar se o resultado está correto.\n");
         printf("==============================\n\n");
     } else {
-        printf("\n✅ Nenhum overflow detectado - Todos os resultados estão dentro do range válido!\n\n");
+        printf("\n Nenhum overflow detectado - Todos os resultados estão dentro do range válido!\n\n");
     }
 }
