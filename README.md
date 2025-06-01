@@ -105,8 +105,6 @@ Assembly é especialmente útil para a otimização de código e a manipulação
   <p>
     A partir disto, foram adicionadas  as entradas e saídas programadas (PIO) de acordo com os barramentos do coprocessador:
   </p>
-<div align="center">
-
   <table>
     <thead>
       <tr>
@@ -138,16 +136,6 @@ Assembly é especialmente útil para a otimização de código e a manipulação
       </tr>
     </tbody>
   </table>
-</div>
-
- <!-- tabela
-|  Barramento |  Tipo   | Tamanho |
-|-------------|---------|---------|
-| Instruction | Input   | 18 bits | 
-| wr          | Input   | 1 bit   |
-| Dataout     | Output  | 8 bits  |
-| Flags       | Output  | 3 bits  | 
--->
 <p>
   Os barramentos são instanciados no módulo main do coprocessador e linkados com as equivalentes portas do verilog. 
 </p>
@@ -192,10 +180,28 @@ Assembly é especialmente útil para a otimização de código e a manipulação
     Diferente das instruções que operam sobre elementos posicionais (linha, coluna), esta função encapsula o valor escalar diretamente na própria instrução. Isso se deve ao fato de que o opcode destinado à multiplicação escalar já inclui o operando imediato (escalar) dentro de sua codificação, dispensando o uso de registradores auxiliares para envio do dado.
   </p>
   <p>A instrução gerada possui o seguinte formato:</p>
-  <ul>
-    <li><code>[10:3]</code> – Valor escalar (8 bits);</li>
-    <li><code>[2:0]</code> – Opcode da operação (<code>0b101</code>, que representa multiplicação escalar).</li>
-  </ul>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Bits</th>
+      <th>Descrição</th>
+      <th>Observação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>[10:3]</td>
+      <td>Valor escalar (8 bits)</td>
+      <td>Utilizado na multiplicação por escalar</td>
+    </tr>
+    <tr>
+      <td>[2:0]</td>
+      <td>Opcode da operação</td>
+      <td><code>0b101</code> representa multiplicação escalar</td>
+    </tr>
+  </tbody>
+</table>
+
   <p>Após montar a instrução, a função a escreve no registrador de instrução monitorado pelo coprocessador e aguarda a conclusão da operação por meio do sinal de status.</p>
   <li>Register_overflow :</li>
   <p>
@@ -266,9 +272,11 @@ Assembly é especialmente útil para a otimização de código e a manipulação
     Por fim, o valor recuperado é retornado, tornando essa função essencial tanto para a obtenção de resultados como para o controle de falhas numéricas no processamento feito pelo coprocessador.
   </p>
 </div>
-
-
-
+<h3>2.4 Menu do Sistema</h3>
+<p>A última etapa do desenvolvimento consistiu na implementação da interface de interação com o usuário, responsável pelo envio e recebimento de dados do sistema. Essa interface foi construída por meio de um menu textual, implementado em linguagem C, com foco na simplicidade e na integração direta com a biblioteca desenvolvida em Assembly.
+</p>
+<p>O menu permite ao usuário realizar a entrada de dados, escolher operações a serem realizadas pelo coprocessador, visualizar os resultados processados e identificar possíveis falhas (como overflow). O código conta com funções de leitura de entrada (input), tratamento de erros, e exibição formatada dos resultados.</p>
+<p>Além disso, o menu atua como camada de controle, sendo responsável por chamar as rotinas da biblioteca Assembly conforme as opções selecionadas. Dessa forma, a aplicação em C orquestra as operações  de forma estruturada, servindo como ponte entre o usuário e o coprocessador implementado em hardware.</p>
 </div>
 
 ---
