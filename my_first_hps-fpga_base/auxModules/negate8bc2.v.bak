@@ -1,0 +1,10 @@
+module negate8bc2(inA, outN, overflow);
+	input [7:0] inA;
+	output [7:0] outS;
+	output overflow;
+	
+	wire [7:0] cp1;
+	
+	assign cp1 = ~inA;
+	assign outS = cp1 + 1b'1;
+endmodule
