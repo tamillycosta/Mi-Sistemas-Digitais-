@@ -149,7 +149,7 @@ Assembly é especialmente útil para a otimização de código e a manipulação
     A função é responsável pela etapa de inicialização do sistema, realizando o mapeamento de memória entre o HPS e o FPGA por meio do AXI Lightweight Bridge.
   </p>
   <p>
-    Inicialmente, o arquivo /dev/mem é aberto para permitir o acesso direto à memória física do sistema. Em seguida, é utilizado o mmap() para mapear a região correspondente ao AXI Lightweight Bridge para o espaço de memória virtual do processo, permitindo o acesso direto aos registradores do FPGA via ponteiros.
+    Inicialmente, o arquivo /dev/mem é aberto para permitir o acesso direto à memória física do sistema. Em seguida, é utilizado o <code>mmap()</code> para mapear a região correspondente ao AXI Lightweight Bridge para o espaço de memória virtual do processo, permitindo o acesso direto aos registradores do FPGA via ponteiros.
   </p>
   <p>
     Após o mapeamento, são inicializados os ponteiros que acessam os registradores das interfaces PIO utilizadas na comunicação com o coprocessador: flags, wr, inst e dataOut. Esses ponteiros permitem a escrita e leitura direta dos sinais de controle e dados entre o HPS e o hardware implementado no FPGA.
@@ -288,6 +288,26 @@ Assembly é especialmente útil para a otimização de código e a manipulação
 
 ---
 <h2 id="conclusao">5. Conclusão:</h2>
-
+<p>A partir da implementação de um coprocessador customizado, foi possível explorar o envio de instruções e a manipulação de dados diretamente via memória mapeada, utilizando a ponte AXI-Lightweight entre a HPS e a FPGA, configurada por meio da ferramenta Qsys.</p>
+<p>A biblioteca em Assembly desenvolvida permitiu encapsular as instruções de baixo nível, facilitando a comunicação eficiente com o hardware. Já a interface em linguagem C funcionou como uma camada de controle, permitindo ao usuário interagir com o sistema de forma prática, com entrada de dados, execução de operações e exibição dos resultados. O sistema também foi projetado com mecanismos de verificação e registro de overflow, assegurando maior confiabilidade nas operações aritméticas realizadas pelo coprocessador.</p>
+<p>Dessa forma, o projeto cumpriu seu objetivo de demonstrar na prática o funcionamento da comunicação entre software e hardware, além de reforçar o entendimento sobre arquiteturas reconfiguráveis, manipulação de memória e controle de fluxo de dados.</p>
 ---
 <h2 id="referencias">6. Referências Bibliográficas</h2>
+<div style="text-align: justify;">
+
+AMAZON WEB SERVICES. *O que é CPU?* Disponível em: <https://aws.amazon.com/pt/what-is/cpu/>. Acesso em: 18 maio 2025.  
+<br>
+IBM. *RISC architecture*. IBM Archives, [s.d.]. Disponível em: <https://www.ibm.com/history/risc>. Acesso em: 20 maio 2025.  
+<br>
+MATIAS, Luiz Gustavo F. *Implementação de um processador híbrido utilizando FPGA para processamento digital de imagens*. 2022. 107 f. Trabalho de Conclusão de Curso (Bacharelado em Engenharia Eletrônica) – Universidade Tecnológica Federal do Paraná, Curitiba, 2022. Disponível em: <https://repositorio.utfpr.edu.br/jspui/bitstream/1/26083/1/hpsfpgaprocessamentodigitalimagens.pdf>. Acesso em: 18 maio 2025.  
+<br>
+NASCIMENTO, Maike de Oliveira. *CoProcessador_PBL2_SD_2025-1*. GitHub, 2025. Disponível em: <https://github.com/DestinyWolf/CoProcessador_PBL2_SD_2025-1>. Acesso em: 24 maio 2025.
+PATTERSON, David A.; HENNESSY, John L. *Computer organization and design: the hardware/software interface*. 5. ed. Amsterdam: Morgan Kaufmann, 2017.  
+<br>
+ROCK CONTENT. *Linguagem de programação: o que é, para que serve e quais os tipos mais populares*. Disponível em: <https://rockcontent.com/br/blog/linguagem-de-programacao/>. Acesso em: 18 maio 2025.  
+<br>
+SANTOS, Fernando Mercês. *Assembly para iniciantes*. Mente Binária, 2022. Disponível em: <https://mentebinaria.gitbook.io/assembly>. Acesso em: 18 maio 2025.  
+<br>
+TECNOBLOG. *Qual é a diferença entre processador ARM e x86?* Tecnoblog, 6 abr. 2021. Disponível em: <https://tecnoblog.net/responde/qual-e-a-diferenca-entre-processador-arm-e-x86/>. Acesso em: 20 maio 2025.  
+</div>
+
