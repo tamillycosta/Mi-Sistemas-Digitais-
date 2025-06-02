@@ -288,12 +288,14 @@ Assembly é especialmente útil para a otimização de código e a manipulação
 
 ---
 <h2 id="conclusao">5. Conclusão:</h2>
+<div align="justify">
 <p>A partir da implementação de um coprocessador customizado, foi possível explorar o envio de instruções e a manipulação de dados diretamente via memória mapeada, utilizando a ponte AXI-Lightweight entre a HPS e a FPGA, configurada por meio da ferramenta Qsys.</p>
 <p>A biblioteca em Assembly desenvolvida permitiu encapsular as instruções de baixo nível, facilitando a comunicação eficiente com o hardware. Já a interface em linguagem C funcionou como uma camada de controle, permitindo ao usuário interagir com o sistema de forma prática, com entrada de dados, execução de operações e exibição dos resultados. O sistema também foi projetado com mecanismos de verificação e registro de overflow, assegurando maior confiabilidade nas operações aritméticas realizadas pelo coprocessador.</p>
 <p>Dessa forma, o projeto cumpriu seu objetivo de demonstrar na prática o funcionamento da comunicação entre software e hardware, além de reforçar o entendimento sobre arquiteturas reconfiguráveis, manipulação de memória e controle de fluxo de dados.</p>
+</div>
 ---
 <h2 id="referencias">6. Referências Bibliográficas</h2>
-<div style="text-align: justify;">
+<div align="justify">
 
 AMAZON WEB SERVICES. *O que é CPU?* Disponível em: <https://aws.amazon.com/pt/what-is/cpu/>. Acesso em: 18 maio 2025.  
 <br>
