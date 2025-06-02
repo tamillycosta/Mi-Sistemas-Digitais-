@@ -319,7 +319,19 @@ Assembly é especialmente útil para a otimização de código e a manipulação
     </td>
   </tr>
 
-  <!-- Linha 4: Multiplicação escalar -->
+  <!-- Linha 4: Multiplicação com overflow -->
+  <tr>
+    <td align="center">
+      <img src="testesImagens/multOverflowTest.png" alt="Teste de multiplicação com overflow" width="360px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Multiplicação com overflow</em></p>
+    </td>
+    <td align="center">
+      <img src="testesImagens/matrizTestMultOverflow.png" alt="Resultado da multiplicação com overflow" width="280px" style="border: 1px solid #ccc; border-radius: 8px;">
+      <p><em>Resultado obtido por calculadora de matrizes</em></p>
+    </td>
+  </tr>
+  
+<!-- Linha 5: Multiplicação escalar -->
   <tr>
     <td align="center">
       <img src="testesImagens/matrizMultEscalarTest.png" alt="Teste de multiplicação escalar" width="360px" style="border: 1px solid #ccc; border-radius: 8px;">
@@ -330,7 +342,6 @@ Assembly é especialmente útil para a otimização de código e a manipulação
       <p><em>Resultado obtido por calculadora de matrizes</em></p>
     </td>
   </tr>
-
 </table>
 
 ---
