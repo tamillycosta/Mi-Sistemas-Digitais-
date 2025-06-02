@@ -32,6 +32,8 @@ void perwitt(imagem* img);
 void roberts(imagem* img);
 //aplica o filtro de laplace
 void laplace(imagem* img);
+//limpa o buffer de imput
+int limpeza(void);
 
 
 int main() {
@@ -48,89 +50,93 @@ int main() {
         printf("2. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcaoImagem);
+        limpeza();
 
         if (opcaoImagem == 2) {
             sair = 1;
             printf("\nSaindo do programa...\n\n");
-            break;
+        } else if(opcaoImagem != 1){
+            printf("Opcao invalida!\n\n");
+        } else{
+            // Escolha da imagem
+            printf("\nEscolha uma imagem:\n");
+            printf("1. 1.bmp\n");
+            printf("2. 2.bmp\n");
+            printf("3. 3.bmp\n");
+            printf("Escolha: ");
+            scanf("%d", &opcaoImagem);
+            limpeza();
+
+            switch (opcaoImagem) {
+                case 1:
+                    snprintf(caminhoImagem, sizeof(caminhoImagem), "imagens/input/1.bmp");
+                    break;
+                case 2:
+                    snprintf(caminhoImagem, sizeof(caminhoImagem), "imagens/input/2.bmp");
+                    break;
+                case 3:
+                    snprintf(caminhoImagem, sizeof(caminhoImagem), "imagens/input/3.bmp");
+                    break;
+                default:
+                    printf("Opcao invalida! Voltando ao menu principal...\n\n");
+                    continue;
+            }
+
+            printf("Imagem selecionada: %s\n", caminhoImagem);
+
+            imagem img;
+
+            leitorBmp(caminhoImagem, &img);
+
+            // Escolha do filtro
+            printf("\nEscolha um filtro para aplicar:\n");
+            printf("1. Sobel 3x3\n");
+            printf("2. Sobel 5x5\n");
+            printf("3. Prewitt\n");
+            printf("4. Roberts\n");
+            printf("5. Laplace\n");
+            printf("Escolha: ");
+            scanf("%d", &opcaoFiltro);
+            limpeza();
+
+            switch (opcaoFiltro) {
+                case 1:
+                    strcpy(nomeFiltro, "sobel3x3");
+                    printf("Filtro Sobel 3x3 selecionado.\n");
+                    sobel3x3(&img);
+                    break;
+                case 2:
+                    strcpy(nomeFiltro, "sobel5x5");
+                    printf("Filtro Sobel 5x5 selecionado.\n");
+                    sobel5x5(&img);
+                    break;
+                case 3:
+                    strcpy(nomeFiltro, "prewitt");
+                    printf("Filtro Prewitt selecionado.\n");
+                    perwitt(&img);
+                    break;
+                case 4:
+                    strcpy(nomeFiltro, "roberts");
+                    printf("Filtro Roberts selecionado.\n");
+                    roberts(&img);
+                    break;
+                case 5:
+                    strcpy(nomeFiltro, "laplace");
+                    printf("Filtro Laplace selecionado.\n");
+                    laplace(&img);
+                    break;
+                default:
+                    printf("Opcao de filtro invalida!\n");
+                    continue;
+            }
+
+            // Criar caminho de saída
+            snprintf(caminhoSaida, sizeof(caminhoSaida), "imagens/output/%d%s.bmp", opcaoImagem, nomeFiltro);
+
+            salvarBmp(caminhoSaida, &img);
+
+            printf("\nImagem salva em: %s\n\n", caminhoSaida);
         }
-
-        // Escolha da imagem
-        printf("\nEscolha uma imagem:\n");
-        printf("1. 1.bmp\n");
-        printf("2. 2.bmp\n");
-        printf("3. 3.bmp\n");
-        printf("Escolha: ");
-        scanf("%d", &opcaoImagem);
-
-        switch (opcaoImagem) {
-            case 1:
-                snprintf(caminhoImagem, sizeof(caminhoImagem), "imagens/input/1.bmp");
-                break;
-            case 2:
-                snprintf(caminhoImagem, sizeof(caminhoImagem), "imagens/input/2.bmp");
-                break;
-            case 3:
-                snprintf(caminhoImagem, sizeof(caminhoImagem), "imagens/input/3.bmp");
-                break;
-            default:
-                printf("Opcao invalida! Voltando ao menu principal...\n\n");
-                continue;
-        }
-
-        printf("Imagem selecionada: %s\n", caminhoImagem);
-
-        imagem img;
-
-        leitorBmp(caminhoImagem, &img);
-
-        // Escolha do filtro
-        printf("\nEscolha um filtro para aplicar:\n");
-        printf("1. Sobel 3x3\n");
-        printf("2. Sobel 5x5\n");
-        printf("3. Prewitt\n");
-        printf("4. Roberts\n");
-        printf("5. Laplace\n");
-        printf("Escolha: ");
-        scanf("%d", &opcaoFiltro);
-
-        switch (opcaoFiltro) {
-            case 1:
-                strcpy(nomeFiltro, "sobel3x3");
-                printf("Filtro Sobel 3x3 selecionado.\n");
-                sobel3x3(&img);
-                break;
-            case 2:
-                strcpy(nomeFiltro, "sobel5x5");
-                printf("Filtro Sobel 5x5 selecionado.\n");
-                sobel5x5(&img);
-                break;
-            case 3:
-                strcpy(nomeFiltro, "prewitt");
-                printf("Filtro Prewitt selecionado.\n");
-                perwitt(&img);
-                break;
-            case 4:
-                strcpy(nomeFiltro, "roberts");
-                printf("Filtro Roberts selecionado.\n");
-                roberts(&img);
-                break;
-            case 5:
-                strcpy(nomeFiltro, "laplace");
-                printf("Filtro Laplace selecionado.\n");
-                laplace(&img);
-                break;
-            default:
-                printf("Opcao de filtro invalida!\n");
-                continue;
-        }
-
-        // Criar caminho de saída
-        snprintf(caminhoSaida, sizeof(caminhoSaida), "imagens/output/%d%s.bmp", opcaoImagem, nomeFiltro);
-
-        salvarBmp(caminhoSaida, &img);
-
-        printf("\nImagem salva em: %s\n\n", caminhoSaida);
     }
 
     return 0;
@@ -666,5 +672,17 @@ void salvarBmp(const char* nomeArquivoSaida, imagem* img) {
     // Opcional: zera os ponteiros pra evitar dangling pointers
     img->cabecalho = NULL;
     img->pixels = NULL;
+}
+
+
+int limpeza(void) {
+    int c;
+    int houve_lixo = 0;
+
+    while ((c = getchar()) != '\n' && c != EOF) {
+        houve_lixo = 1;
+    }
+
+    return houve_lixo;
 }
 
