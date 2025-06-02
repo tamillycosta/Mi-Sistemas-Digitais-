@@ -304,6 +304,7 @@ IBM. *RISC architecture*. IBM Archives, [s.d.]. Disponível em: <https://www.ibm
 MATIAS, Luiz Gustavo F. *Implementação de um processador híbrido utilizando FPGA para processamento digital de imagens*. 2022. 107 f. Trabalho de Conclusão de Curso (Bacharelado em Engenharia Eletrônica) – Universidade Tecnológica Federal do Paraná, Curitiba, 2022. Disponível em: <https://repositorio.utfpr.edu.br/jspui/bitstream/1/26083/1/hpsfpgaprocessamentodigitalimagens.pdf>. Acesso em: 18 maio 2025.  
 <br>
 NASCIMENTO, Maike de Oliveira. *CoProcessador_PBL2_SD_2025-1*. GitHub, 2025. Disponível em: <https://github.com/DestinyWolf/CoProcessador_PBL2_SD_2025-1>. Acesso em: 24 maio 2025.
+<br>
 PATTERSON, David A.; HENNESSY, John L. *Computer organization and design: the hardware/software interface*. 5. ed. Amsterdam: Morgan Kaufmann, 2017.  
 <br>
 ROCK CONTENT. *Linguagem de programação: o que é, para que serve e quais os tipos mais populares*. Disponível em: <https://rockcontent.com/br/blog/linguagem-de-programacao/>. Acesso em: 18 maio 2025.  
