@@ -281,8 +281,13 @@ Assembly é especialmente útil para a otimização de código e a manipulação
 
 ---
 <h2 id="testes">3. Testes: </h2>
+<p align="justify">
+  Para garantir que as operações estão funcionando corretamente, foram realizados alguns testes práticos.
+  Em cada linha da tabela abaixo, é apresentada a operação enviada ao sistema (à esquerda) e o resultado esperado,
+  calculado com a ferramenta <a href="https://matrixcalc.org/" target="_blank">Matrix Calculator</a> (à direita).
+  Dessa forma, foi possível realizar a comparação e validar se tudo está funcionando conforme o esperado.
+</p>
 <table align="center">
-
   <!-- Linha 1: Adição -->
   <tr>
     <td align="center">
