@@ -19,7 +19,7 @@ void clean();
 void Operation(int8_t* matrixA, int8_t* matrixB, int8_t * result);
 void Aritimetic(int optionOperacao, int8_t  escalar);
 void ReadResult(int8_t  * matrizResult, int size);
-void PrintResult(int8_t* matrizA, int8_t* matrizB, int8_t * matrizResult, int size, int operation);
+void PrintResult(int8_t* matrizA, int8_t* matrizB, int8_t * matrizResult, int size, int operation, int8_t escalar);
 int limpeza(void);
 void clear_overflow_log(void);
 void print_overflow_report(void);

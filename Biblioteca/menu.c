@@ -5,9 +5,9 @@
 #include <unistd.h> 
 #include <string.h> 
 //header de ultilitarios do Assembly 
-#include "Headers/assemblyFunc.h"
+#include "assemblyFunc.h"
 //header de ultilitarios do  C
-#include "Headers/functions.h"
+#include "functions.h"
 
 // Arrays globais para armazenar informações de overflow
 int overflow_positions_i[25] = {0};     // Máximo 5x5 = 25 posições
@@ -23,14 +23,16 @@ void start() {
     int8_t  result[5][5];
 
     while (1) {
-        printf("----------------------------------------------------------\n");
-        usleep(1000000);
-        printf(" Seja bem vindo(a) à biblioteca de Operaões Matriciais \n");
-        printf("----------------------------------------------------------\n");
         usleep(250000);
-        printf("1 - Realizar operação");
-        printf("\n2 - Sair");
-        printf("\n..........................................................");
+        printf("---------------------------------------------------------");
+        usleep(1000000);
+        printf("\n Seja bem vindo(a) à biblioteca de Operações Matriciais.\n");
+        printf("---------------------------------------------------------\n");
+        printf("\n");
+        usleep(250000);
+        printf("(1) - Realizar operação");
+        printf("\n(2) - Sair");
+        printf("\n");
         printf("\nO que deseja?: ");
         scanf("%d", &option);  // Corrigido: adicionado &
         limpeza();
@@ -47,7 +49,7 @@ void start() {
                 exit(0);
                 break;
             default: 
-                printf("\n Opção inválida.\n");
+                printf("\nOpção inválida.\n");
                 clean();
         }
     }
@@ -110,7 +112,7 @@ int read_matrix_size(void) {
                 printf("Erro: Tamanho deve estar entre 1 e 5.\n");
             }
         } else {
-            printf("Erro: Digite um número válido.\n");
+            printf(" Erro: Digite um número válido.\n");
             limpeza(); // Limpa buffer em caso de erro
         }
     }
@@ -129,9 +131,9 @@ void Operation(int8_t* matrixA, int8_t* matrixB, int8_t * matrizResult) {
 
     // Menu de operações
     printf("\n\nOperações:\n");
-    printf("1 - Soma\n2 - Subtração\n");
-    printf("3 - Multiplicação de matrizes\n");
-    printf("4 - Multiplicação por inteiro\n");
+    printf("(1) Soma\n(2) Subtração\n");
+    printf("(3) Multiplicação de matrizes\n");
+    printf("(4) Multiplicação por inteiro\n");
     printf("\nDigite uma opção: ");
     scanf("%d", &optionOperacao);
     limpeza();
@@ -185,7 +187,7 @@ void Operation(int8_t* matrixA, int8_t* matrixB, int8_t * matrizResult) {
 
     Aritimetic(optionOperacao, escalar);
     ReadResult(matrizResult, size);
-    PrintResult(matrixA, matrixB, matrizResult, size, optionOperacao);
+    PrintResult(matrixA, matrixB, matrizResult, size, optionOperacao, escalar);
 }
 
 // Envia opcode da operação aritimetica 
@@ -225,7 +227,7 @@ void ReadResult(int8_t  * matrizResult, int size){
     }
 }
 
-void PrintResult(int8_t* matrizA, int8_t* matrizB, int8_t * matrizResult, int size, int operation) {
+void PrintResult(int8_t* matrizA, int8_t* matrizB, int8_t * matrizResult, int size, int operation, int8_t escalar) {
     int i, j;
     
     // Cabeçalho explicativo
@@ -247,7 +249,7 @@ void PrintResult(int8_t* matrizA, int8_t* matrizB, int8_t * matrizResult, int si
         case 2: printf("SUBTRAÇÃO"); break;
         case 3: printf("MULTIPLICAÇÃO DE MATRIZES"); break;
         case 4: printf("MULTIPLICAÇÃO POR ESCALAR"); break;
-        default: printf("INVALIDO");
+        default: printf("INVÁLIDO");
     }
     printf("\n");
     
@@ -261,8 +263,9 @@ void PrintResult(int8_t* matrizA, int8_t* matrizB, int8_t * matrizResult, int si
             
             printf("\n");
         }
+    }else{
+        printf("Escalar: %4hhd", escalar);
     }
-    
    
     printf("\n%s\n", "--------------------------------");
     
@@ -301,9 +304,10 @@ int limpeza(void) {
 
 // Função para limpar o registro de overflows
 void clear_overflow_log(void) {
+    int i;
     overflow_count = 0;
    
-    for(int i = 0; i < 25; i++) {
+    for(i = 0; i < 25; i++) {
         overflow_positions_i[i] = 0;
         overflow_positions_j[i] = 0;
         overflow_values[i] = 0;
@@ -313,22 +317,18 @@ void clear_overflow_log(void) {
 
 // Função para mostrar relatório de overflow
 void print_overflow_report(void) {
+ 
     if (overflow_count > 0) {
-        printf("\n  RELATÓRIO DE OVERFLOW \n");
-        printf("==============================\n");
-        printf("Foram detectados %d overflow(s) nas seguintes posições:\n\n", overflow_count);
-        
-        for (int k = 0; k < overflow_count; k++) {
-            printf("• Posição [%d][%d]: Valor = %d (pode estar incorreto devido ao overflow)\n", 
-                   overflow_positions_i[k], 
-                   overflow_positions_j[k], 
-                   overflow_values[k]);
-        }
-        
+        printf("\nRELATÓRIO DE OVERFLOW\n");
+        printf("=========================================================================\n");
+        printf("Foi detectado overflow na operação \n\n");
+      
+                   
         printf("\n Overflows ocorrem quando o resultado excede o range -128 a 127.\n");
-        printf("   Considere usar valores menores ou verificar se o resultado está correto.\n");
-        printf("==============================\n\n");
+        printf(" Considere usar valores menores ou verificar se o resultado está correto.\n");
+       
+        printf("===============================================================================\n\n");
     } else {
-        printf("\n Nenhum overflow detectado - Todos os resultados estão dentro do range válido!\n\n");
+        printf("\nNenhum overflow detectado - Todos os resultados estão dentro do range válido!\n\n");
     }
 }
