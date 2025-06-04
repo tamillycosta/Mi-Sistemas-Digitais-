@@ -1,5 +1,5 @@
 Flow report for soc_system
-Thu May 15 11:51:13 2025
+Wed Jun  4 12:47:49 2025
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -41,19 +41,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Thu May 15 11:50:37 2025          ;
+; Flow Status                     ; Successful - Wed Jun  4 12:47:10 2025          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; soc_system                                     ;
 ; Top-level Entity Name           ; ghrd_top                                       ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 13,143 / 32,070 ( 41 % )                       ;
-; Total registers                 ; 5111                                           ;
+; Logic utilization (in ALMs)     ; 19,271 / 32,070 ( 60 % )                       ;
+; Total registers                 ; 5098                                           ;
 ; Total pins                      ; 382 / 457 ( 84 % )                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 526,336 / 4,065,280 ( 13 % )                   ;
-; Total DSP Blocks                ; 8 / 87 ( 9 % )                                 ;
+; Total DSP Blocks                ; 0 / 87 ( 0 % )                                 ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
 ; Total HSSI TX PCSs              ; 0                                              ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/15/2025 11:43:11 ;
+; Start date & time ; 06/04/2025 12:39:08 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; soc_system          ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
 ; Assignment Name                       ; Value                                                                    ; Default Value ; Entity Name                    ; Section Id ;
 +---------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
-; COMPILER_SIGNATURE_ID                 ; 268809273967831.174732018903694                                          ; --            ; --                             ; --         ;
+; COMPILER_SIGNATURE_ID                 ; 268809282588156.174905154617130                                          ; --            ; --                             ; --         ;
 ; ECO_REGENERATE_REPORT                 ; On                                                                       ; Off           ; --                             ; --         ;
 ; HPS_ISW_FILE                          ; soc_system/synthesis/submodules/sequencer/sdram_io.pre.h                 ; --            ; soc_system_hps_0_hps_io_border ; --         ;
 ; HPS_ISW_FILE                          ; soc_system/synthesis/submodules/sequencer/sequencer_auto.pre.h           ; --            ; soc_system_hps_0_hps_io_border ; --         ;
@@ -135,11 +135,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:44     ; 4.0                     ; 1031 MB             ; 00:02:26                           ;
-; Fitter               ; 00:03:32     ; 1.7                     ; 3765 MB             ; 00:17:22                           ;
-; Assembler            ; 00:00:09     ; 1.0                     ; 722 MB              ; 00:00:09                           ;
-; Timing Analyzer      ; 00:00:35     ; 3.4                     ; 1712 MB             ; 00:01:47                           ;
-; Total                ; 00:05:00     ; --                      ; --                  ; 00:21:44                           ;
+; Analysis & Synthesis ; 00:00:54     ; 3.7                     ; 1085 MB             ; 00:03:04                           ;
+; Fitter               ; 00:03:52     ; 1.8                     ; 3873 MB             ; 00:21:16                           ;
+; Assembler            ; 00:00:11     ; 1.0                     ; 779 MB              ; 00:00:11                           ;
+; Timing Analyzer      ; 00:00:38     ; 3.8                     ; 1862 MB             ; 00:02:13                           ;
+; Total                ; 00:05:35     ; --                      ; --                  ; 00:26:44                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -148,10 +148,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+----------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
 +----------------------+------------------+----------------+------------+----------------+
-; Analysis & Synthesis ; LEDS-54165       ; Ubuntu 24.04.2 ; 24         ; x86_64         ;
-; Fitter               ; LEDS-54165       ; Ubuntu 24.04.2 ; 24         ; x86_64         ;
-; Assembler            ; LEDS-54165       ; Ubuntu 24.04.2 ; 24         ; x86_64         ;
-; Timing Analyzer      ; LEDS-54165       ; Ubuntu 24.04.2 ; 24         ; x86_64         ;
+; Analysis & Synthesis ; LEDS-54160       ; Ubuntu 24.04.2 ; 24         ; x86_64         ;
+; Fitter               ; LEDS-54160       ; Ubuntu 24.04.2 ; 24         ; x86_64         ;
+; Assembler            ; LEDS-54160       ; Ubuntu 24.04.2 ; 24         ; x86_64         ;
+; Timing Analyzer      ; LEDS-54160       ; Ubuntu 24.04.2 ; 24         ; x86_64         ;
 +----------------------+------------------+----------------+------------+----------------+
 
 

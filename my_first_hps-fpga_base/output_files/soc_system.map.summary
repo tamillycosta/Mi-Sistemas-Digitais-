@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Thu May 15 11:46:49 2025
+Analysis & Synthesis Status : Successful - Wed Jun  4 12:42:59 2025
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : soc_system
 Top-level Entity Name : ghrd_top
@@ -8,7 +8,7 @@ Total registers : 4823
 Total pins : 382
 Total virtual pins : 0
 Total block memory bits : 526,336
-Total DSP Blocks : 8
+Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0
