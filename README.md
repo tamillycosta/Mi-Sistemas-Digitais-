@@ -91,6 +91,13 @@ Assembly é especialmente útil para a otimização de código e a manipulação
   <p>
     Dessa forma, para dar continuidade ao desenvolvimento, foi optado a utilização do coprocessador fornecido pelo monitor da disciplina de Sistemas Digitais. O repositório desse coprocessador pode ser acessado <a href="https://github.com/DestinyWolf/CoProcessador_PBL2_SD_2025-1.git">neste link</a>.
 </p>
+  <p>
+    Além disso, para atender aos requisitos do projeto, foi necessário implementar o tratamento de overflow por meio de um mecanismo de saturação. Como o coprocessador utiliza números com 8 bits, o maior valor positivo representável é 127 e o menor valor negativo é -128. Assim, quando uma operação produz um resultado maior que 127, o valor é ajustado para 127. Da mesma forma, quando o resultado é menor que -128, ele é ajustado para -128. Essa abordagem evita distorções ou travamentos causados por estouros.
+  </p>
+  <p>
+    Por fim, também foi identificado que o coprocessador utilizado não conseguia realizar a operação de multiplicação escalar com números negativos. Foi necessário implementar uma modificação adicional para permitir esse tipo de operação.
+  </p>
+  
   </p>
   <h3>2.2 Comunicação HPS - FPGA</h3>
    <p>
@@ -353,13 +360,55 @@ Assembly é especialmente útil para a otimização de código e a manipulação
 
 <h2 id="execucao">4. Como Executar</h2>
 
----
+<h3>1️⃣ Clone o repositório</h3>
+
+<pre><code>git clone https://github.com/tamillycosta/Mi-Sistemas-Digitais-.git
+</code></pre>
+
+<hr>
+
+<h3>2️⃣ Executar o Coprocessador no Quartus Prime</h3>
+<ol>
+  <li>Abra o Quartus Prime.</li>
+  <li>No menu, vá em <strong>File &gt; Open Project</strong> e selecione o arquivo <code>.qpf</code> do projeto.</li>
+  <li>Compile o projeto clicando em <strong>Compile</strong> no menu principal.</li>
+  <li>Carregue o projeto na FPGA:
+    <ul>
+      <li>Vá em <strong>Tools &gt; Programmer</strong></li>
+      <li>Selecione o arquivo <code>.sof</code> compilado.</li>
+      <li>Envie para a placa <strong>DE1-SoC</strong> conectada via <strong>USB-Blaster</strong>.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr>
+
+<h3>3️⃣ Executar a Biblioteca Assembly no HPS</h3>
+<ol>
+  <li>Conecte-se ao HPS via SSH.</li>
+  <li>Adicione os arquivos da pasta <code>Mi-Sistemas-Digitais-</code> ao HPS.</li>
+  <li>Compile o projeto manualmente usando o seguinte comando:</li>
+</ol>
+
+<pre><code>gcc -Wall -Wextra -o programa main.c menu.c libAssembly.s -lrt
+</code></pre>
+
+<ol start="4">
+  <li>Execute o programa:</li>
+</ol>
+
+<pre><code>sudo ./programa
+</code></pre>
+
+<hr>
+
 <h2 id="conclusao">5. Conclusão:</h2>
 <div align="justify">
 <p>A partir da implementação de um coprocessador customizado, foi possível explorar o envio de instruções e a manipulação de dados diretamente via memória mapeada, utilizando a ponte AXI-Lightweight entre a HPS e a FPGA, configurada por meio da ferramenta Qsys.</p>
 <p>A biblioteca em Assembly desenvolvida permitiu encapsular as instruções de baixo nível, facilitando a comunicação eficiente com o hardware. Já a interface em linguagem C funcionou como uma camada de controle, permitindo ao usuário interagir com o sistema de forma prática, com entrada de dados, execução de operações e exibição dos resultados. O sistema também foi projetado com mecanismos de verificação e registro de overflow, assegurando maior confiabilidade nas operações aritméticas realizadas pelo coprocessador.</p>
 <p>Dessa forma, o projeto cumpriu seu objetivo de demonstrar na prática o funcionamento da comunicação entre software e hardware, além de reforçar o entendimento sobre arquiteturas reconfiguráveis, manipulação de memória e controle de fluxo de dados.</p>
 </div>
+
 ---
 <h2 id="referencias">6. Referências Bibliográficas</h2>
 <div align="justify">
