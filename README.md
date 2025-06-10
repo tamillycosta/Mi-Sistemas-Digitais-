@@ -139,12 +139,31 @@ Onde:
 <p>O filtro laplaciano é utilizada para a destacar áreas de mudança rápida de intensidade, que geralmente estão associadas às bordas de uma imagem. Diferentemente dos outros filtros como sobel, roberts e prewitt, o filtro laplaciano utiliza a segunda derivada da intensidade da imagem.</p>
 <p>A segunda derivada da intensidade da imagem é representada por: </p>
 
+$$
+\nabla^2 I(x, y) = \frac{\partial^2 I}{\partial x^2} + \frac{\partial^2 I}{\partial y^2}
+$$
+
+Onde:
+- $\nabla^2 I(x, y)$ é o Laplaciano da imagem.
+- $\frac{\partial^2 I}{\partial x^2}$ é a segunda derivada na direção $x$.
+- $\frac{\partial^2 I}{\partial y^2}$ é a segunda derivada na direção $y$.
+
+<p>Embora o filtro laplaciano seja sensível a mudanças de intensidade em todas as direções, ele também é altamente sensível ao ruído, o que pode limitar sua aplicação direta em imagens reais.</p>
+
+<p>A máscara utilizada foi: </p>
+<div align="center" style="margin: 20px 0;">
+  <img src="imagensReadMe/laplaciano.png" style="width: 190px; height: 140px; object-fit: contain; display: block; margin: 0 auto;">
+</div>
+
 </div>
 ---
 <h2 id="desenvolvimento">2. Desenvolvimento: </h2>
 
 ---
 <h2 id="testes">3. Testes: </h2>
+
+---
+
 <h2 id="execucao">4. Como Executar</h2>
 
 <h3>1️⃣ Clone o repositório</h3>
@@ -188,9 +207,6 @@ Onde:
 </code></pre>
 
 <hr>
----
-
-<h2 id="execucao">4. Como Executar</h2>
 
 ---
 <h2 id="conclusao">5. Conclusão:</h2>
