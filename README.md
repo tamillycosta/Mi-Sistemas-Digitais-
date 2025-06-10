@@ -205,6 +205,85 @@ Onde:
 </table>
 </div>
 
+<h3>Sobel 5x5</h3>
+<div align="center" style="margin: 20px 0;">
+<table>
+  <tr>
+    <td>
+      <img src="imagensReadMe/out/1sobel5x5.png" ; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/2sobel5x5.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/3sobel5x5.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/4sobel5x5.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+  </tr>
+</table>
+</div>
+
+<h3>Prewitt</h3>
+<div align="center" style="margin: 20px 0;">
+<table>
+  <tr>
+    <td>
+      <img src="imagensReadMe/out/1prewitt.png" ; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/2prewitt.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/3prewitt.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/4prewitt.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+  </tr>
+</table>
+</div>
+
+<h3>Roberts</h3>
+<div align="center" style="margin: 20px 0;">
+<table>
+  <tr>
+    <td>
+      <img src="imagensReadMe/out/1roberts.png" ; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/2roberts.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/3roberts.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/4roberts.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+  </tr>
+</table>
+</div>
+
+<h3>Laplaciano</h3>
+<div align="center" style="margin: 20px 0;">
+<table>
+  <tr>
+    <td>
+      <img src="imagensReadMe/out/1laplace.png" ; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/2laplace.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/3laplace.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/4laplace.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+  </tr>
+</table>
+</div>
 
 ---
 
