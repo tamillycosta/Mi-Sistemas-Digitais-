@@ -150,7 +150,7 @@ Onde:
 
 <p>Embora o filtro laplaciano seja sensível a mudanças de intensidade em todas as direções, ele também é altamente sensível ao ruído, o que pode limitar sua aplicação direta em imagens reais.</p>
 
-<p>A máscara utilizada foi: </p>
+<p>A máscara utilizada é: </p>
 <div align="center" style="margin: 20px 0;">
   <img src="imagensReadMe/laplaciano.png" style="width: 190px; height: 140px; object-fit: contain; display: block; margin: 0 auto;">
 </div>
