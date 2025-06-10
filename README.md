@@ -135,13 +135,59 @@ Onde:
 
 </div>
 
+<h3>Laplaciano</h3>
+<p>O filtro laplaciano é utilizada para a destacar áreas de mudança rápida de intensidade, que geralmente estão associadas às bordas de uma imagem. Diferentemente dos outros filtros como sobel, roberts e prewitt, o filtro laplaciano utiliza a segunda derivada da intensidade da imagem.</p>
+<p>A segunda derivada da intensidade da imagem é representada por: </p>
+
 </div>
 ---
 <h2 id="desenvolvimento">2. Desenvolvimento: </h2>
 
 ---
 <h2 id="testes">3. Testes: </h2>
+<h2 id="execucao">4. Como Executar</h2>
 
+<h3>1️⃣ Clone o repositório</h3>
+
+<pre><code>git clone https://github.com/tamillycosta/Mi-Sistemas-Digitais-.git
+</code></pre>
+
+<hr>
+
+<h3>2️⃣ Executar o Coprocessador no Quartus Prime</h3>
+<ol>
+  <li>Abra o Quartus Prime.</li>
+  <li>No menu, vá em <strong>File &gt; Open Project</strong> e selecione o arquivo <code>.qpf</code> do projeto.</li>
+  <li>Compile o projeto clicando em <strong>Compile</strong> no menu principal.</li>
+  <li>Carregue o projeto na FPGA:
+    <ul>
+      <li>Vá em <strong>Tools &gt; Programmer</strong></li>
+      <li>Selecione o arquivo <code>.sof</code> compilado.</li>
+      <li>Envie para a placa <strong>DE1-SoC</strong> conectada via <strong>USB-Blaster</strong>.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr>
+
+<h3>3️⃣ Executar a Biblioteca Assembly no HPS</h3>
+<ol>
+  <li>Conecte-se ao HPS via SSH.</li>
+  <li>Adicione os arquivos da pasta <code>Mi-Sistemas-Digitais-</code> ao HPS.</li>
+  <li>Compile o projeto manualmente usando o seguinte comando:</li>
+</ol>
+
+<pre><code>gcc -Wall -Wextra -o programa main.c mulLib.c libAssembly.s -lrt -lm
+</code></pre>
+
+<ol start="4">
+  <li>Execute o programa:</li>
+</ol>
+
+<pre><code>sudo ./programa
+</code></pre>
+
+<hr>
 ---
 
 <h2 id="execucao">4. Como Executar</h2>
