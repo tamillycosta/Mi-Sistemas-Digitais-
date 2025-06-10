@@ -165,8 +165,8 @@ Onde:
 <p>
   As imagens utilizadas para os testes foram: 
 </p>
-<div align="center" style="margin: 20px 0;">
 
+<div align="center" style="margin: 20px 0;">
 <table>
   <tr>
     <td>
@@ -183,7 +183,26 @@ Onde:
     </td>
   </tr>
 </table>
+</div>
 
+<h3>Sobel 3x3</h3>
+<div align="center" style="margin: 20px 0;">
+<table>
+  <tr>
+    <td>
+      <img src="imagensReadMe/out/1sobel3x3.png" ; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/2sobel3x3.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/3sobel3x3.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/out/4sobel3x3.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+  </tr>
+</table>
 </div>
 
 
