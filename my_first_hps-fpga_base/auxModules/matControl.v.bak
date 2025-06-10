@@ -1,0 +1,46 @@
+module matControl (
+    op, row, col, value, wr_start, clk, data_out, ex_data_in
+);
+    input [1:0] op;
+    input [2:0] col, row;
+    input [7:0] value;
+    input [199:0] ex_data_in;
+    input wr_start, clk;
+    reg [199:0] data_in;
+    reg rst;
+    output [199:0] data_out;
+
+    wire [9:0] index_start;
+    wire [199:0]value_to_wr;
+
+    assign index_start = (row << 5 | row << 3) + (col << 3);
+    assign value_to_wr = (data_out | value << index_start);
+
+    reg200b matrix(clk, rst, data_in, data_out);
+
+    always @(posedge clk) begin
+        case (op)
+            2'b00: begin
+                data_in <= ex_data_in;
+                rst <= 1'b0;
+            end
+            2'b01: begin
+                if (wr_start) begin
+                    data_in <= value_to_wr;
+                    rst <= 1'b0;
+                end
+            end
+            2'b10: begin
+                data_in <= data_in;
+                rst <= 1'b0;
+            end
+            2'b11: begin
+                rst <= 1'b1;
+            end
+            default: begin
+                rst <= rst;
+                data_in <= data_in;
+            end
+        endcase
+    end
+endmodule
