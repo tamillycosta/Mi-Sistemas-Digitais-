@@ -4,6 +4,7 @@
 #include <string.h>
 #include <math.h>
 #include "multiplicacao.h"
+#include "assemblyFunc.h"
 
 //Guarda os dados de uma imagem .bmp
 typedef struct{
@@ -44,6 +45,7 @@ int main() {
     char nomeFiltro[20];
     int sair = 0;
 
+
     while (!sair) {
         printf("\n=== MENU PRINCIPAL ===\n");
         printf("1. Selecionar Imagem\n");
@@ -58,11 +60,17 @@ int main() {
         } else if(opcaoImagem != 1){
             printf("Opcao invalida!\n\n");
         } else{
+            init_hardware(); // Função de mapeamento 
+
+            //limpa os registradores, garantindo que não haja interferencia de lixo :)
+            execute_operation(0b111);
+
             // Escolha da imagem
             printf("\nEscolha uma imagem:\n");
             printf("1. 1.bmp\n");
             printf("2. 2.bmp\n");
             printf("3. 3.bmp\n");
+            printf("4. 4.bmp\n");
             printf("Escolha: ");
             scanf("%d", &opcaoImagem);
             limpeza();
@@ -76,6 +84,9 @@ int main() {
                     break;
                 case 3:
                     snprintf(caminhoImagem, sizeof(caminhoImagem), "imagens/input/3.bmp");
+                    break;
+                case 4:
+                    snprintf(caminhoImagem, sizeof(caminhoImagem), "imagens/input/4.bmp");
                     break;
                 default:
                     printf("Opcao invalida! Voltando ao menu principal...\n\n");
@@ -166,21 +177,24 @@ void sobel3x3(imagem* img){
     };
 
     //percorre a todos os pixels da imagem
-    for(int i = 0; i < img->altura; i++){
+    int i, j, i2, j2;
+    printf("carregando");
+    for(i = 0; i < img->altura; i++){
         int linha = img->altura - i - 1;
 
-        for(int j = 0; j < img->largura; j++){
+        for(j = 0; j < img->largura; j++){
+            printf("...");
             //posição do pixel atual no vetor
             int posicao = linha * img->tamanhoLinha + j * (img->profundidade / 8);
 
             // Matriz temporária e resultados das multiplicações
-            int8_t temp[5][5] = {0};
-            int8_t mulx[5][5] = {0};
-            int8_t muly[5][5] = {0};
+            int8_t temp[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+            int8_t mulx[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+            int8_t muly[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
 
             // Preenche a matriz 5x5 com vizinhança 3x3 centrada no pixel (com borda de zeros)
-            for(int i2 = -1; i2 <= 1; i2++){
-                for(int j2 = -1; j2 <= 1; j2++){
+            for(i2 = -1; i2 <= 1; i2++){
+                for(j2 = -1; j2 <= 1; j2++){
                     int linhaVizinha = i + i2;
                     int colunaVizinha = j + j2;
 
@@ -198,20 +212,21 @@ void sobel3x3(imagem* img){
             }
 
             // Multiplica pelas máscaras
-            mult_tmp(temp, sobelx, mulx); //TODO: trocar pela função do coprocessador
-            mult_tmp(temp, sobely, muly); //TODO: trocar pela função do coprocessador
+            mult_tmp(temp, sobelx,  mulx); //TODO: trocar pela função do coprocessador
+            mult_tmp(temp, sobely,  muly); //TODO: trocar pela função do coprocessador
 
             // Soma todos os valores das matrizes resultantes
-            int somax = 0;
-            int somay = 0;
+            int somax = mulx[0][0];
+            int somay = muly[0][0];
 
-            for(int k = 0; k < 5; k++){
-                for(int l = 0; l < 5; l++){
+            /*int k, l;
+            for(k = 0; k < 5; k++){
+                for(l = 0; l < 5; l++){
                     //valores multiplicados antes da soma para compensar pela divisão feita antes
                     somax += mulx[k][l]*2;
                     somay += muly[k][l]*2;
                 }
-            }
+            }*/
 
             //eleva o resultado de ambas mascaras ao quadrado e  soma
             int novoValor = round(sqrt(pow(somax, 2)+pow(somay, 2)));
@@ -223,6 +238,7 @@ void sobel3x3(imagem* img){
             comFiltro[posicao + 0] = resultadoFinal;
             comFiltro[posicao + 1] = resultadoFinal;
             comFiltro[posicao + 2] = resultadoFinal;
+            printf("\b\b\b");
         }
     }
 
@@ -254,22 +270,25 @@ void sobel5x5(imagem* img){
         { 1,  4,  6,  4,  1}
     };
 
+    int i, j, i2, j2;
+    printf("carregando");
     //percorre a todos os pixels da imagem
-    for(int i = 0; i < img->altura; i++){
+    for(i = 0; i < img->altura; i++){
         int linha = img->altura - i - 1;
 
-        for(int j = 0; j < img->largura; j++){
+        for(j = 0; j < img->largura; j++){
+            printf("...");
             //posição do pixel atual no vetor
             int posicao = linha * img->tamanhoLinha + j * (img->profundidade / 8);
 
             // Matriz temporária e resultados das multiplicações
-            int8_t temp[5][5] = {0};
-            int8_t mulx[5][5] = {0};
-            int8_t muly[5][5] = {0};
+            int8_t temp[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+            int8_t mulx[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+            int8_t muly[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
 
             // Preenche a matriz 5x5 com vizinhança do pixel
-            for(int i2 = -2; i2 <= 2; i2++){
-                for(int j2 = -2; j2 <= 2; j2++){
+            for(i2 = -2; i2 <= 2; i2++){
+                for(j2 = -2; j2 <= 2; j2++){
                     int linhaVizinha = i + i2;
                     int colunaVizinha = j + j2;
 
@@ -279,7 +298,7 @@ void sobel5x5(imagem* img){
                         
                         //posição do pixel vizinho atual no vetor
                         int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
-                        temp[i2 + 2][j2 + 2] = (img->pixels[posVizinho])/2; 
+                        temp[i2 + 2][j2 + 2] = (img->pixels[posVizinho])/24; 
                         // valor em tons de cinza, não precisa considerar cada cor
                         // valores divididos por 2 para garantir que o resultado não exceda 8bits
                     }
@@ -287,20 +306,21 @@ void sobel5x5(imagem* img){
             }
 
             // Multiplica pelas máscaras
-            mult_tmp(temp, sobelx, mulx); //TODO: trocar pela função do coprocessador
+            mult_tmp(temp, sobelx,  mulx); //TODO: trocar pela função do coprocessador
             mult_tmp(temp, sobely, muly); //TODO: trocar pela função do coprocessador
 
             // Soma todos os valores das matrizes resultantes
-            int32_t somax = 0;
-            int32_t somay = 0;
+            int somax = mulx[0][0]*2;
+            int somay = muly[0][0]*2;
 
-            for(int k = 0; k < 5; k++){
-                for(int l = 0; l < 5; l++){
+            /*int k, l;
+            for(k = 0; k < 5; k++){
+                for(l = 0; l < 5; l++){
                     //valores multiplicados antes da soma para compensar pela divisão feita antes
                     somax += mulx[k][l]*2;
                     somay += muly[k][l]*2;
                 }
-            }
+            }*/
 
             //eleva o resultado de ambas mascaras ao quadrado e  soma
             int novoValor = round(sqrt(pow(somax, 2)+pow(somay, 2)));
@@ -312,6 +332,7 @@ void sobel5x5(imagem* img){
             comFiltro[posicao + 0] = resultadoFinal;
             comFiltro[posicao + 1] = resultadoFinal;
             comFiltro[posicao + 2] = resultadoFinal;
+            printf("\b\b\b");
         }
     }
 
@@ -343,22 +364,25 @@ void perwitt(imagem* img){
         { 0,  0,  0,  0,  0}
     };
 
+    int i, j, i2, j2;
+    printf("carregando");
     //percorre a todos os pixels da imagem
-    for(int i = 0; i < img->altura; i++){
+    for(i = 0; i < img->altura; i++){
         int linha = img->altura - i - 1;
 
-        for(int j = 0; j < img->largura; j++){
+        for(j = 0; j < img->largura; j++){
+            printf("...");
             //posição do pixel atual no vetor
             int posicao = linha * img->tamanhoLinha + j * (img->profundidade / 8);
 
             // Matriz temporária e resultados das multiplicações
-            int8_t temp[5][5] = {0};
-            int8_t mulx[5][5] = {0};
-            int8_t muly[5][5] = {0};
+            int8_t temp[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+            int8_t mulx[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+            int8_t muly[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
 
             // Preenche a matriz 5x5 com vizinhança 3x3 centrada no pixel (com borda de zeros)
-            for(int i2 = -1; i2 <= 1; i2++){
-                for(int j2 = -1; j2 <= 1; j2++){
+            for(i2 = -1; i2 <= 1; i2++){
+                for(j2 = -1; j2 <= 1; j2++){
                     int linhaVizinha = i + i2;
                     int colunaVizinha = j + j2;
 
@@ -376,20 +400,21 @@ void perwitt(imagem* img){
             }
 
             // Multiplica pelas máscaras
-            mult_tmp(temp, perwittx, mulx); //TODO: trocar pela função do coprocessador
-            mult_tmp(temp, perwitty, muly); //TODO: trocar pela função do coprocessador
+            mult_tmp(temp, perwittx,  mulx); //TODO: trocar pela função do coprocessador
+            mult_tmp(temp, perwitty,  muly); //TODO: trocar pela função do coprocessador
 
             // Soma todos os valores das matrizes resultantes
-            int somax = 0;
-            int somay = 0;
+            int somax = mulx[0][0];
+            int somay = muly[0][0];
 
-            for(int k = 0; k < 5; k++){
-                for(int l = 0; l < 5; l++){
+            /*int k, l;
+            for(k = 0; k < 5; k++){
+                for(l = 0; l < 5; l++){
                     //valores multiplicados antes da soma para compensar pela divisão feita antes
                     somax += mulx[k][l]*2;
                     somay += muly[k][l]*2;
                 }
-            }
+            }*/
 
             //eleva o resultado de ambas mascaras ao quadrado e  soma
             int novoValor = round(sqrt(pow(somax, 2)+pow(somay, 2)));
@@ -401,6 +426,7 @@ void perwitt(imagem* img){
             comFiltro[posicao + 0] = resultadoFinal;
             comFiltro[posicao + 1] = resultadoFinal;
             comFiltro[posicao + 2] = resultadoFinal;
+            printf("\b\b\b");
         }
     }
 
@@ -416,38 +442,41 @@ void roberts(imagem* img){
     unsigned char* comFiltro = malloc(img->tamanhoImagem * sizeof(unsigned char));
 
     // Máscaras Roberts 3x3 adaptadas para matriz 5x5 com zeros nos cantos
-    int8_t sobely[5][5] = {
-        { 1,  0,  0,  0,  0},
-        { 0, -1,  0,  0,  0},
+    int8_t robertsy[5][5] = {
         { 0,  0,  0,  0,  0},
+        { 0,  1,  0,  0,  0},
+        { 0,  0, -1,  0,  0},
         { 0,  0,  0,  0,  0},
         { 0,  0,  0,  0,  0}
     };
     
-    int8_t sobelx[5][5] = {
-        { 0,  1,  0,  0,  0},
-        {-1,  0,  0,  0,  0},
+    int8_t robertsx[5][5] = {
         { 0,  0,  0,  0,  0},
+        { 0,  0,  1,  0,  0},
+        { 0, -1,  0,  0,  0},
         { 0,  0,  0,  0,  0},
         { 0,  0,  0,  0,  0}
     };
 
+    int i, j, i2, j2;
+    printf("carregando");
     //percorre a todos os pixels da imagem
-    for(int i = 0; i < img->altura; i++){
+    for(i = 0; i < img->altura; i++){
         int linha = img->altura - i - 1;
 
-        for(int j = 0; j < img->largura; j++){
+        for(j = 0; j < img->largura; j++){
+            printf("...");
             //posição do pixel atual no vetor
             int posicao = linha * img->tamanhoLinha + j * (img->profundidade / 8);
 
             // Matriz temporária e resultados das multiplicações
-            int8_t temp[5][5] = {0};
-            int8_t mulx[5][5] = {0};
-            int8_t muly[5][5] = {0};
+            int8_t temp[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+            int8_t mulx[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+            int8_t muly[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
 
             // Preenche a matriz 5x5 com vizinhança 2x2 centrada no pixel (com borda de zeros)
-            for(int i2 = 0; i2 <= 1; i2++){
-                for(int j2 = 0; j2 <= 1; j2++){
+            for(i2 = 1; i2 <= 2; i2++){
+                for(j2 = 1; j2 <= 2; j2++){
                     int linhaVizinha = i + i2;
                     int colunaVizinha = j + j2;
 
@@ -457,7 +486,7 @@ void roberts(imagem* img){
                         
                         //posição do pixel vizinho atual no vetor
                         int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
-                        temp[i2][j2] = (img->pixels[posVizinho])/2; 
+                        temp[i2][j2] = (img->pixels[posVizinho]/2); 
                         // valor em tons de cinza, não precisa considerar cada cor
                         // valores divididos por 2 para garantir que o resultado não exceda 8bits
                     }
@@ -465,20 +494,21 @@ void roberts(imagem* img){
             }
 
             // Multiplica pelas máscaras
-            mult_tmp(temp, sobelx, mulx); //TODO: trocar pela função do coprocessador
-            mult_tmp(temp, sobely, muly); //TODO: trocar pela função do coprocessador
+            mult_tmp(temp, robertsx,  mulx); //TODO: trocar pela função do coprocessador
+            mult_tmp(temp, robertsy,  muly); //TODO: trocar pela função do coprocessador
 
             // Soma todos os valores das matrizes resultantes
-            int somax = 0;
-            int somay = 0;
+            int somax = mulx[0][0]*2;
+            int somay = muly[0][0]*2;
 
-            for(int k = 0; k < 5; k++){
-                for(int l = 0; l < 5; l++){
+            /*int k, l;
+            for(k = 0; k < 5; k++){
+                for(l = 0; l < 5; l++){
                     //valores multiplicados antes da soma para compensar pela divisão feita antes
                     somax += mulx[k][l]*2;
                     somay += muly[k][l]*2;
                 }
-            }
+            }*/
 
             //eleva o resultado de ambas mascaras ao quadrado e  soma
             int novoValor = round(sqrt(pow(somax, 2)+pow(somay, 2)));
@@ -490,6 +520,7 @@ void roberts(imagem* img){
             comFiltro[posicao + 0] = resultadoFinal;
             comFiltro[posicao + 1] = resultadoFinal;
             comFiltro[posicao + 2] = resultadoFinal;
+            printf("\b\b\b");
         }
     }
 
@@ -513,21 +544,24 @@ void laplace(imagem* img){
         { 0,  0, -1,  0,  0}
     };
 
+    int i, j, i2, j2;
+    printf("carregando");
     //percorre a todos os pixels da imagem
-    for(int i = 0; i < img->altura; i++){
+    for(i = 0; i < img->altura; i++){
         int linha = img->altura - i - 1;
 
-        for(int j = 0; j < img->largura; j++){
+        for(j = 0; j < img->largura; j++){
+            printf("...");
             //posição do pixel atual no vetor
             int posicao = linha * img->tamanhoLinha + j * (img->profundidade / 8);
 
             // Matriz temporária e resultados da multiplicação
-            int8_t temp[5][5] = {0};
-            int8_t mul[5][5] = {0};
+            int8_t temp[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+            int8_t mul[5][5] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
 
             // Preenche a matriz 5x5 com vizinhança do pixel
-            for(int i2 = -2; i2 <= 2; i2++){
-                for(int j2 = -2; j2 <= 2; j2++){
+            for(i2 = -2; i2 <= 2; i2++){
+                for(j2 = -2; j2 <= 2; j2++){
                     int linhaVizinha = i + i2;
                     int colunaVizinha = j + j2;
 
@@ -537,28 +571,28 @@ void laplace(imagem* img){
                         
                         //posição do pixel vizinho atual no vetor
                         int posVizinho = (img->altura - linhaVizinha - 1) * img->tamanhoLinha + colunaVizinha * (img->profundidade / 8);
-                        temp[i2 + 2][j2 + 2] = (img->pixels[posVizinho])/32; 
+                        temp[i2 + 2][j2 + 2] = (img->pixels[posVizinho])/4; 
                         // valor em tons de cinza, não precisa considerar cada cor
-                        // valores divididos por 2 para garantir que o resultado não exceda 8bits
                     }
                 }
             }
 
             // Multiplica pelas máscara
-            mult_tmp(temp, laplace, mul); //TODO: trocar pela função do coprocessador
+            mult_tmp(temp, laplace,  mul); //TODO: trocar pela função do coprocessador
 
             // Soma todos os valores das matrizes resultantes
-            int32_t soma = 0;
+            int32_t soma = mul[0][0]*2;
 
-            for(int k = 0; k < 5; k++){
-                for(int l = 0; l < 5; l++){
+            /*int k, l;
+            for(k = 0; k < 5; k++){
+                for(l = 0; l < 5; l++){
                     //valores multiplicados antes da soma para compensar pela divisão feita antes
                     soma += mul[k][l]*32;
                 }
-            }
+            }*/
 
-            //eleva o resultado de ambas mascaras ao quadrado e  soma
-            int novoValor = abs(soma/4);
+            //Tira o modulo do resultado
+            int novoValor = (abs(soma));
             //teste se o valor excedeu o limite de 8bits por cor na imagem
             if(novoValor > 255) novoValor = 255;
 
@@ -567,6 +601,7 @@ void laplace(imagem* img){
             comFiltro[posicao + 0] = resultadoFinal;
             comFiltro[posicao + 1] = resultadoFinal;
             comFiltro[posicao + 2] = resultadoFinal;
+            printf("\b\b\b");
         }
     }
 
@@ -623,10 +658,11 @@ void leitorBmp(char* nomeArquivoLeitura, imagem* img) {
     fread(buf, sizeof(unsigned char), imageSize, streamIn);
     fclose(streamIn);
 
+    int i, j;
     // Converte em tons de cinza
-    for (int i = 0; i < height; i++) {
+    for (i = 0; i < height; i++) {
         int linha = height - i - 1;
-        for (int j = 0; j < width; j++) {
+        for (j = 0; j < width; j++) {
             int posicao = linha * rowSize + j * bytesPerPixel;
             unsigned char *b = &buf[posicao + 0];
             unsigned char *g = &buf[posicao + 1];
@@ -635,6 +671,7 @@ void leitorBmp(char* nomeArquivoLeitura, imagem* img) {
             *r = *g = *b = media;
         }
     }
+    printf("\n");
 
     // Preenche os dados da struct
     img->largura = width;
