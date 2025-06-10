@@ -197,3 +197,14 @@ Onde:
 
 ---
 <h2 id="referencias">6. Referências Bibliográficas</h2>
+<div align="justify">
+  <ul>
+    <li>GONZALEZ, Rafael C.; WOODS, Richard E. Digital image processing. 4. ed. global. Harlow: Pearson Education Limited, 2018.</li>
+    <li>HIPR2. Roberts cross edge detector. University of Edinburgh, [s.d.]. Disponível em: https://homepages.inf.ed.ac.uk/rbf/HIPR2/roberts.htm. Acesso em: 5 jun. 2025.</li>
+    <li>HIPR2. Sobel edge detector. University of Edinburgh, [s.d.]. Disponível em: https://homepages.inf.ed.ac.uk/rbf/HIPR2/sobel.htm. Acesso em: 4 jun. 2025.</li>
+    <li>MARQUES, Oge. Processamento digital de imagens. [s.l.], 1999. Disponível em: https://www.ogemarques.com/wp-content/uploads/2014/11/pdi99.pdf. Acesso em: 3 jun. 2025.</li>
+    <li>PINHO, Mário. Introdução ao processamento de imagens. Pontifícia Universidade Católica do Rio Grande do Sul (PUC-RS), [s.d.]. Disponível em: https://www.inf.pucrs.br/pinho/CGII/PDFs/IntroducaoProcImg.pptx.pdf. Acesso em: 3 jun. 2025.</li>
+    <li>ROBOFLOW. Edge detection in computer vision: a comprehensive guide. Roboflow Blog, 2023. Disponível em: https://blog.roboflow.com/edge-detection/. Acesso em: 4 jun. 2025.</li>
+    <li>ROBOFLOW. Laplacian edge detection. Roboflow Blog, 2023. Disponível em: https://blog.roboflow.com/edge-detection/#laplacian-edge-detection. Acesso em: 5 jun. 2025.</li>
+    <li>VICERI, Rodrigo. Entendendo de vez a convolução: base para processamento de imagens. VICERI, 2021. Disponível em: https://viceri.com.br/insights/entendendo-de-vez-a-convolucao-base-para-processamento-de-imagens/. Acesso em: 3 jun. 2025.</li>
+
