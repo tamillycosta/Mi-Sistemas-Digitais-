@@ -162,6 +162,31 @@ Onde:
 ---
 <h2 id="testes">3. Testes: </h2>
 
+<p>
+  As imagens utilizadas para os testes foram: 
+</p>
+<div align="center" style="margin: 20px 0;">
+
+<table>
+  <tr>
+    <td>
+      <img src="imagensReadMe/in/1.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/in/2.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/in/3.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+    <td>
+      <img src="imagensReadMe/in/4.png"; object-fit: contain; display: block; margin: 0 auto;">
+    </td>
+  </tr>
+</table>
+
+</div>
+
+
 ---
 
 <h2 id="execucao">4. Como Executar</h2>
