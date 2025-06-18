@@ -346,6 +346,12 @@ Onde:
 
 ---
 <h2 id="conclusao">5. Conclusão:</h2>
+<div align="justify">
+  <p>O projeto de implementação de filtros de detecção de bordas com uso de coprocessador em FPGA demonstrou-se eficaz tanto em nível funcional quanto educacional. A proposta foi integralmente atendida: as imagens foram lidas, processadas e submetidas aos filtros Sobel (3x3 e 5x5), Prewitt, Roberts e Laplaciano, gerando resultados visivelmente compatíveis com o esperado para cada operador.</p>
+  <p>A integração entre software (linguagem C e Assembly) e hardware (coprocessador matricial na DE1-SoC) permitiu o desenvolvimento de uma solução robusta. O uso da linguagem C sem bibliotecas externas para manipulação de imagens bitmap proporcionou maior controle sobre os dados, reforçando o entendimento sobre manipulação binária e estruturas de arquivos.</p>
+  <p>Além disso, a comparação entre os diferentes filtros aplicados evidenciou suas particularidades: o filtro de Sobel mostrou-se eficiente na detecção de bordas bem definidas, com a versão 5x5 oferecendo maior suavização e precisão; o Prewitt, por ser computacionalmente mais simples, teve desempenho satisfatório em imagens com menos ruído; o Roberts destacou-se por sua leveza, embora mais sensível a imperfeições; e o Laplaciano, por sua vez, evidenciou bordas com maior sensibilidade, porém com maior suscetibilidade a ruídos.</p>
+  <p>Em suma, o projeto reforçou conhecimentos essenciais sobre processamento de imagens, programação de baixo nível e integração hardware/software, consolidando a aplicação prática dos conceitos abordados na disciplina de Sistemas Digitais.</p>
+</div>
 
 ---
 <h2 id="referencias">6. Referências Bibliográficas</h2>
