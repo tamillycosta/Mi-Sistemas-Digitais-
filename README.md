@@ -344,7 +344,6 @@ Onde:
 
 <hr>
 
----
 <h2 id="conclusao">5. Conclusão:</h2>
 <div align="justify">
   <p>O projeto de implementação de filtros de detecção de bordas com uso de coprocessador em FPGA demonstrou-se eficaz tanto em nível funcional quanto educacional. A proposta foi integralmente atendida: as imagens foram lidas, processadas e submetidas aos filtros Sobel (3x3 e 5x5), Prewitt, Roberts e Laplaciano, gerando resultados visivelmente compatíveis com o esperado para cada operador.</p>
