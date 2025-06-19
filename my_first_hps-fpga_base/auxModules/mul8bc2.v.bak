@@ -1,0 +1,30 @@
+module mult_signed_shift_add (
+  input  signed [7:0] a,
+  input  signed [7:0] b,
+  output reg signed [15:0] result
+);
+  integer i;
+  reg [7:0] abs_a, abs_b;
+  reg [15:0] partial_sum;
+  reg sign;
+
+  always @(*) begin
+    // Calcula módulo (valor absoluto) de a e b
+    abs_a = a[7] ? (~a + 1) : a;
+    abs_b = b[7] ? (~b + 1) : b;
+
+    // Determina o sinal do resultado
+    sign = a[7] ^ b[7]; // Se sinais forem diferentes, resultado é negativo
+
+    // Multiplicação normal sem sinal (shift-and-add)
+    partial_sum = 16'd0;
+    for (i = 0; i < 8; i = i + 1) begin
+      if (abs_b[i]) begin
+        partial_sum = partial_sum + (abs_a << i);
+      end
+    end
+
+    // Aplica o sinal ao resultado
+    result = sign ? (~partial_sum + 1) : partial_sum;
+  end
+endmodule

@@ -1,0 +1,3 @@
+module registerBank25(clk, dataIn, write, dataOut);
+
+endmodule
